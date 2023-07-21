@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://1ne1yvouw68r"]
+
+[ext_resource type="Script" path="res://scripts/business_card.gd" id="1_w3bbw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_63qgs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8uu0b"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e7jxh"]
+material = SubResource("StandardMaterial3D_8uu0b")
+
+[node name="BusinessCard" type="Area3D"]
+script = ExtResource("1_w3bbw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("SphereShape3D_63qgs")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.107739, 0, -0.000996923, 0, 0.00125324, 0, 0.00178466, 0, 0.0601836, 0, 0, 0)
+mesh = SubResource("BoxMesh_e7jxh")
+skeleton = NodePath("")

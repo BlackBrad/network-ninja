@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd7n7yllnkgkt"]
+[gd_scene load_steps=4 format=3 uid="uid://dd7n7yllnkgkt"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1wvgp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_idvwt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b6808"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_1wvgp")
@@ -16,3 +18,16 @@ shape = SubResource("CapsuleShape3D_idvwt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
+current = true
+
+[node name="CardEmitter" type="Node3D" parent="Pivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(0.271568, 0, -0.0225042, 0, 0.0290728, 0, 0.101978, 0, 0.0599287, 0.134267, -0.143844, -0.370345)
+mesh = SubResource("BoxMesh_b6808")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Pivot/MeshInstance3D"]
+transform = Transform3D(0.346528, 0, -7.45058e-09, 0, 0.314228, 0, 4.76837e-07, 0, 1, -0.624011, 0, 0.27887)
+mesh = SubResource("BoxMesh_b6808")
+skeleton = NodePath("../..")

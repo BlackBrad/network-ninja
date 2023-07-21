@@ -1,11 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcp57wnxwqpe2"]
+[gd_scene load_steps=5 format=3 uid="uid://dcp57wnxwqpe2"]
 
 [ext_resource type="PackedScene" uid="uid://dd7n7yllnkgkt" path="res://scenes/player.tscn" id="1_wn24y"]
 [ext_resource type="PackedScene" uid="uid://cy3ros6x4injp" path="res://scenes/atendee.tscn" id="2_0xd3t"]
+[ext_resource type="PackedScene" uid="uid://1ne1yvouw68r" path="res://scenes/business_card.tscn" id="3_mvisn"]
 
 [sub_resource type="Environment" id="Environment_8wp53"]
 ambient_light_source = 2
-ambient_light_color = Color(0.952941, 0.717647, 0.560784, 1)
+ambient_light_color = Color(0.243137, 0.341176, 0.329412, 1)
 
 [node name="test_level" type="Node3D"]
 
@@ -19,5 +20,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8wp53")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.731532, 0, -0.681807, 0.311356, -0.88964, 0.334064, -0.606562, -0.456663, -0.6508, -4.58974, 8.55828, -4.38101)
+
 [node name="Atendee" parent="." instance=ExtResource("2_0xd3t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, -7)
+
+[node name="BusinessCard" parent="." instance=ExtResource("3_mvisn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96033, 2.02865, -5.99932)
