@@ -30,7 +30,7 @@ func handle_business_card():
 	instance.global_position = spawner.global_position
 	
 	var forward = -spawner.global_transform.basis.z
-	instance.velocity = forward * 2.0
+	instance.velocity = forward * instance.SPEED + velocity
 
 func _physics_process(delta):
 	# Add the gravity.
