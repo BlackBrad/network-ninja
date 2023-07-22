@@ -8,6 +8,14 @@ const JUMP_VELOCITY = 4.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var _input_dir = Vector2(0, 0)
+var is_networked = false
+
+func _ready():
+	update_is_networked()
+	
+func set_is_networked(networked):
+	is_networked = networked
+	update_is_networked()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -38,3 +46,7 @@ func _on_timer_timeout():
 		_input_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 	
 	$Timer.wait_time = randf_range(1, 5)
+
+func update_is_networked():
+	$NetworkedVisualization.visible = is_networked
+	

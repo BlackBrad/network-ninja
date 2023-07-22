@@ -33,7 +33,8 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("attendees"):
-		print("hit attendee")
-		get_node("/root/ScoringSystem").add_card_flight_time(_flight_time * max(acceleration.length() * 5, 1))
-		body.queue_free()
-		queue_free()
+		if not body.is_networked:
+			print("hit attendee")
+			get_node("/root/ScoringSystem").add_card_flight_time(_flight_time * max(acceleration.length() * 5, 1))
+			queue_free()
+			body.set_is_networked(true)
