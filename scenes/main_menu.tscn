@@ -102,5 +102,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("2_evkto")
 
+[connection signal="pressed" from="MenuController/MainMenuContainer/StartGameButton" to="MenuController" method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuController/MainMenuContainer/OptionButton" to="MenuController" method="_on_options_button_pressed"]
 [connection signal="pressed" from="MenuController/MainMenuContainer/ExitButton" to="MenuController" method="_on_exit_game_button_pressed"]
