@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcp57wnxwqpe2"]
+[gd_scene load_steps=9 format=3 uid="uid://dcp57wnxwqpe2"]
 
 [ext_resource type="PackedScene" uid="uid://dd7n7yllnkgkt" path="res://scenes/player.tscn" id="1_wn24y"]
 [ext_resource type="PackedScene" uid="uid://cy3ros6x4injp" path="res://scenes/atendee.tscn" id="2_0xd3t"]
 [ext_resource type="PackedScene" uid="uid://1ne1yvouw68r" path="res://scenes/business_card.tscn" id="3_mvisn"]
 [ext_resource type="AudioStream" uid="uid://cl1de75dcn4st" path="res://audio/music/8bit Bossa-distored.mp3" id="4_h6h16"]
+[ext_resource type="AudioStream" uid="uid://chft6fpi5hr4" path="res://audio/music/Dark-Intro-distorted-speedup-16.mp3" id="5_xmq4a"]
 
 [sub_resource type="Environment" id="Environment_8wp53"]
 ambient_light_source = 2
@@ -123,3 +124,4 @@ volume_db = -28.403
 autoplay = true
 
 [node name="Consumption Sound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_xmq4a")
