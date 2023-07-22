@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cye37mxsaq4c6"]
 
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_rxbpr"]
-[ext_resource type="Script" path="res://scenes/VolumeLabel.gd" id="2_sq77u"]
+[ext_resource type="Script" path="res://scripts/VolumeLabel.gd" id="2_q6c6h"]
 
 [node name="Node" type="Node"]
 
@@ -79,7 +79,7 @@ offset_bottom = 8.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-script = ExtResource("2_sq77u")
+script = ExtResource("2_q6c6h")
 
 [node name="SFX" type="Label" parent="MainMenu/OptionMenuContainer/OptionTabContainer/Sound"]
 layout_mode = 0
@@ -95,7 +95,7 @@ offset_bottom = 8.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-script = ExtResource("2_sq77u")
+script = ExtResource("2_q6c6h")
 
 [node name="Music" type="Label" parent="MainMenu/OptionMenuContainer/OptionTabContainer/Sound"]
 layout_mode = 0
@@ -111,7 +111,12 @@ offset_bottom = 8.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-script = ExtResource("2_sq77u")
+script = ExtResource("2_q6c6h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/OptionMenuContainer/OptionTabContainer/Sound"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="OptionMenuButtons" type="HBoxContainer" parent="MainMenu/OptionMenuContainer"]
 layout_mode = 2
