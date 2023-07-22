@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dknhr1bwmvhq0"]
+[gd_scene load_steps=7 format=3 uid="uid://dknhr1bwmvhq0"]
 
 [ext_resource type="PackedScene" uid="uid://x8grald5vr3v" path="res://assets/NPC_networker.glb" id="1_5shm2"]
 [ext_resource type="Script" path="res://scripts/npc_networker_animation.gd" id="2_52dum"]
+[ext_resource type="Material" uid="uid://dcdyemoeamkji" path="res://assets/materials/NPC_B_mat.tres" id="2_flhv7"]
 
 [sub_resource type="Animation" id="Animation_64dy8"]
 length = 0.001
@@ -227,7 +228,11 @@ bones/10/scale = Vector3(1, 1, 1)
 bones/11/rotation = Quaternion(1.65436e-24, 3.30872e-24, -3.10193e-25, 1)
 bones/12/rotation = Quaternion(-4.10948e-34, 0, -1.4806e-17, 1)
 
+[node name="NPC_networker_geo" parent="Armature/Skeleton3D" index="0"]
+material_override = ExtResource("2_flhv7")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+autoplay = "shuffle"
 libraries = {
 "": SubResource("AnimationLibrary_jw18q")
 }

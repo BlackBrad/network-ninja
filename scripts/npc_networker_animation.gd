@@ -10,3 +10,6 @@ func start_panic():
 func stop_moving():
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("RESET")
+
+func _ready():
+	stop_moving()
