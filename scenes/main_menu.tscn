@@ -1,131 +1,106 @@
-[gd_scene load_steps=3 format=3 uid="uid://cye37mxsaq4c6"]
+[gd_scene load_steps=3 format=3 uid="uid://d2ts2qowj18hm"]
 
-[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_rxbpr"]
-[ext_resource type="Script" path="res://scripts/VolumeLabel.gd" id="2_q6c6h"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gta00"]
+[ext_resource type="Script" path="res://scripts/volume_label.gd" id="2_evkto"]
 
-[node name="Node" type="Node"]
+[node name="main_menu" type="Node"]
 
-[node name="MainMenu" type="Control" parent="."]
+[node name="MenuController" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rxbpr")
+script = ExtResource("1_gta00")
 
-[node name="Sprite2D" type="Sprite2D" parent="MainMenu"]
-
-[node name="MainMenuContainer" type="VBoxContainer" parent="MainMenu"]
+[node name="MainMenuContainer" type="VBoxContainer" parent="MenuController"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
+offset_left = -48.0
 offset_top = -50.5
-offset_right = 100.0
+offset_right = 48.0
 offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="start_button" type="Button" parent="MainMenu/MainMenuContainer"]
+[node name="StartGameButton" type="Button" parent="MenuController/MainMenuContainer"]
 layout_mode = 2
 text = "Start Game"
 
-[node name="option_button" type="Button" parent="MainMenu/MainMenuContainer"]
+[node name="OptionButton" type="Button" parent="MenuController/MainMenuContainer"]
 layout_mode = 2
 text = "Options"
 
-[node name="exit_button" type="Button" parent="MainMenu/MainMenuContainer"]
+[node name="ExitButton" type="Button" parent="MenuController/MainMenuContainer"]
 layout_mode = 2
 text = "Exit"
 
-[node name="OptionMenuContainer" type="VBoxContainer" parent="MainMenu"]
+[node name="OptionMenuContainer" type="VBoxContainer" parent="MenuController"]
 visible = false
+custom_minimum_size = Vector2(500, 500)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -21.5
-offset_right = 10.0
-offset_bottom = 21.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="OptionTabContainer" type="TabContainer" parent="MainMenu/OptionMenuContainer"]
-custom_minimum_size = Vector2(500, 500)
+[node name="OptionTabContainer" type="TabContainer" parent="MenuController/OptionMenuContainer"]
 layout_mode = 2
 tab_alignment = 1
 
-[node name="Sound" type="TabBar" parent="MainMenu/OptionMenuContainer/OptionTabContainer"]
+[node name="Sound" type="TabBar" parent="MenuController/OptionMenuContainer/OptionTabContainer"]
 layout_mode = 2
 
-[node name="Master" type="Label" parent="MainMenu/OptionMenuContainer/OptionTabContainer/Sound"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="MasterVolumeInput" type="HScrollBar" parent="MainMenu/OptionMenuContainer/OptionTabContainer/Sound"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="MasterVolumeValueLabel" type="Label" parent="MainMenu/OptionMenuContainer/OptionTabContainer/Sound/MasterVolumeInput"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-script = ExtResource("2_q6c6h")
-
-[node name="SFX" type="Label" parent="MainMenu/OptionMenuContainer/OptionTabContainer/Sound"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="SoundVolumeInput" type="HScrollBar" parent="MainMenu/OptionMenuContainer/OptionTabContainer/Sound"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="SFXVolumeValueLabel" type="Label" parent="MainMenu/OptionMenuContainer/OptionTabContainer/Sound/SoundVolumeInput"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-script = ExtResource("2_q6c6h")
-
-[node name="Music" type="Label" parent="MainMenu/OptionMenuContainer/OptionTabContainer/Sound"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="MusicVolumeInput" type="HScrollBar" parent="MainMenu/OptionMenuContainer/OptionTabContainer/Sound"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="MusicVolumeValueLabel" type="Label" parent="MainMenu/OptionMenuContainer/OptionTabContainer/Sound/MusicVolumeInput"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-script = ExtResource("2_q6c6h")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/OptionMenuContainer/OptionTabContainer/Sound"]
+[node name="SoundOptionContainer" type="VBoxContainer" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="OptionMenuButtons" type="HBoxContainer" parent="MainMenu/OptionMenuContainer"]
+[node name="MasterSoundScrollHContainer" type="HBoxContainer" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer"]
 layout_mode = 2
 
-[node name="ApplyButton" type="Button" parent="MainMenu/OptionMenuContainer/OptionMenuButtons"]
+[node name="MasterSoundLabel" type="Label" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MasterSoundScrollHContainer"]
+layout_mode = 2
+text = "Master:"
+
+[node name="MasterSoundScroll" type="HScrollBar" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MasterSoundScrollHContainer"]
+layout_mode = 2
+value = 50.0
+
+[node name="MasterSoundValueLabel" type="Label" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MasterSoundScrollHContainer/MasterSoundScroll"]
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("2_evkto")
+
+[node name="MusicSoundScrollHContainer" type="HBoxContainer" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer"]
 layout_mode = 2
 
-[node name="CancelButton" type="Button" parent="MainMenu/OptionMenuContainer/OptionMenuButtons"]
+[node name="MusicSoundLabel" type="Label" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MusicSoundScrollHContainer"]
 layout_mode = 2
+text = "Music"
 
-[connection signal="pressed" from="MainMenu/MainMenuContainer/start_button" to="MainMenu" method="_on_start_button_pressed"]
-[connection signal="pressed" from="MainMenu/MainMenuContainer/option_button" to="MainMenu" method="_on_option_button_pressed"]
+[node name="MusicSoundScroll" type="HScrollBar" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MusicSoundScrollHContainer"]
+layout_mode = 2
+value = 50.0
+
+[node name="MusicSoundValueLabel" type="Label" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MusicSoundScrollHContainer/MusicSoundScroll"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("2_evkto")
+
+[connection signal="pressed" from="MenuController/MainMenuContainer/OptionButton" to="MenuController" method="_on_options_button_pressed"]
+[connection signal="pressed" from="MenuController/MainMenuContainer/ExitButton" to="MenuController" method="_on_exit_game_button_pressed"]
