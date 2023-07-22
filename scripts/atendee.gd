@@ -30,7 +30,6 @@ func _physics_process(delta):
 		if target_to_observe == null:
 			# Find nearest attendee who is networked
 			var taken_attendees = get_tree().get_nodes_in_group("taken_attendees")
-			print(taken_attendees)
 			var closest = null
 			var closest_dist = 1000.0
 			for attendee in taken_attendees:
@@ -41,7 +40,6 @@ func _physics_process(delta):
 			
 			# Set to target to observe
 			target_to_observe = closest
-			print("Setting Observing to %s" % closest)
 			
 		# Zero velocity
 		velocity.x = 0
@@ -52,7 +50,6 @@ func _physics_process(delta):
 		
 		# Look at target to observe in horror
 		if target_to_observe:
-			print("Observing %s" % target_to_observe)
 			mesh.look_at(target_to_observe.global_position, Vector3.UP, true)
 			mesh.rotation.x = 0.0
 			mesh.rotation.z = 0.0
@@ -87,6 +84,8 @@ func _on_timer_timeout():
 func _on_seagal():
 	if is_networked:
 		replace_with_rigid_body()
+		var score_system = get_node("/root/ScoringSystem")
+		score_system.add_networked_attendee()
 	else:
 		is_observing = true
 
