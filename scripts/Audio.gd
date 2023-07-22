@@ -44,5 +44,5 @@ func play_random_voice():
 		StreamPlayer.play()
 
 func _process(delta):
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_just_pressed("debug_random_voice"):
 		play_random_voice()
