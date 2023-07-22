@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpwj0yu43ykkr"]
+[gd_scene load_steps=8 format=3 uid="uid://d28r5qu3p0npm"]
 
-[ext_resource type="PackedScene" uid="uid://x8grald5vr3v" path="res://assets/NPC_networker.glb" id="1_5shm2"]
-[ext_resource type="Script" path="res://scripts/npc_networker_animation.gd" id="2_52dum"]
-[ext_resource type="Material" uid="uid://ddwk6mawuga4f" path="res://assets/materials/NPC_A_mat.tres" id="3_1x1p6"]
-[ext_resource type="PackedScene" uid="uid://c0snyvhcewx21" path="res://assets/models/mask_beak.glb" id="4_dpqdo"]
-[ext_resource type="PackedScene" uid="uid://d3uxoxtldw4vn" path="res://assets/models/mask_deer.glb" id="5_aj0j2"]
+[ext_resource type="PackedScene" uid="uid://x8grald5vr3v" path="res://assets/NPC_networker.glb" id="1_s2l05"]
+[ext_resource type="Script" path="res://scripts/npc_networker_animation.gd" id="2_fqetr"]
+[ext_resource type="Material" uid="uid://ddwk6mawuga4f" path="res://assets/materials/NPC_A_mat.tres" id="3_3df44"]
+[ext_resource type="PackedScene" uid="uid://c0snyvhcewx21" path="res://assets/models/mask_beak.glb" id="4_7n0ew"]
 
 [sub_resource type="Animation" id="Animation_64dy8"]
 length = 0.001
@@ -203,8 +202,8 @@ _data = {
 "shuffle": SubResource("Animation_65tux")
 }
 
-[node name="NPC_networker" instance=ExtResource("1_5shm2")]
-script = ExtResource("2_52dum")
+[node name="NPC_networker" instance=ExtResource("1_s2l05")]
+script = ExtResource("2_fqetr")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-14, 0, -3.55271e-14, 1, 0, 0, 0)
@@ -232,18 +231,14 @@ bones/11/rotation = Quaternion(1.65436e-24, 3.30872e-24, -3.10193e-25, 1)
 bones/12/rotation = Quaternion(-4.10948e-34, 0, -1.4806e-17, 1)
 
 [node name="NPC_networker_geo" parent="Armature/Skeleton3D" index="0"]
-material_override = ExtResource("3_1x1p6")
+material_override = ExtResource("3_3df44")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
 transform = Transform3D(-1, 2.11388e-08, 5.96046e-08, 2.11388e-08, 1, 3.82601e-08, -5.96046e-08, 3.82601e-08, -1, 4.39567e-07, 2.98023e-08, -1.6094)
 bone_name = "neck_jnt"
 bone_idx = 6
 
-[node name="mask_beak" parent="Armature/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("4_dpqdo")]
-transform = Transform3D(-1, 5.96047e-08, 2.11388e-08, 2.11388e-08, -1.57469e-07, 1, 5.96047e-08, 1, 1.57469e-07, 0, 0, 0)
-visible = false
-
-[node name="mask_deer" parent="Armature/Skeleton3D/BoneAttachment3D" index="1" instance=ExtResource("5_aj0j2")]
+[node name="mask_beak" parent="Armature/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("4_7n0ew")]
 transform = Transform3D(-1, 5.96046e-08, 2.11388e-08, 2.11388e-08, -1.57469e-07, 1, 5.96046e-08, 1, 1.57469e-07, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]

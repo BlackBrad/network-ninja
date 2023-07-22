@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://x8grald5vr3v"
-path="res://.godot/imported/NPC_networker.glb-f6eda54a93c79c5d01e43a50c63a4b95.scn"
+uid="uid://b3w1sf03bucug"
+path="res://.godot/imported/mask_pig.glb-a602c463176286325b58cd116433147f.scn"
 
 [deps]
 
-source_file="res://assets/NPC_networker.glb"
-dest_files=["res://.godot/imported/NPC_networker.glb-f6eda54a93c79c5d01e43a50c63a4b95.scn"]
+source_file="res://assets/models/mask_pig.glb"
+dest_files=["res://.godot/imported/mask_pig.glb-a602c463176286325b58cd116433147f.scn"]
 
 [params]
 
@@ -23,16 +23,16 @@ meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
-animation/import=false
+animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"NPC_A": {
+"lambert1": {
 "use_external/enabled": true,
-"use_external/path": "res://assets/materials/NPC_A_mat.tres"
+"use_external/path": "res://assets/materials/mask_red_mat.tres"
 }
 }
 }
