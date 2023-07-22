@@ -27,7 +27,8 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# Face direction of motion
-	$Mesh.look_at($Mesh.global_position - velocity.normalized())
+	if Vector3(velocity.x, 0.0, velocity.z).length() > 0.2:
+		$Mesh.look_at($Mesh.global_position - velocity.normalized())
 
 
 func _on_timer_timeout():
