@@ -22,7 +22,7 @@ func _input(event):
 		var pivot = $Pivot
 		pivot.rotation.x = clamp(pivot.rotation.x - event.relative.y * MOUSE_SENSITIVITY, -0.5 * PI, 0.5 * PI)
 
-		_relative_mouse_motion = event.relative
+		_relative_mouse_motion = event.relative * MOUSE_SENSITIVITY
 
 
 func handle_business_card():
@@ -40,7 +40,8 @@ func handle_business_card():
 	instance.velocity = forward * instance.SPEED + velocity
 	
 	var rel = _end_drag - _start_drag
-	instance.acceleration = right * rel.x * -10.0
+	print("%f %f" % [rel.x, rel.y])
+	instance.acceleration = right * rel.x * -1000.0
 
 func _physics_process(delta):
 	# Add the gravity.

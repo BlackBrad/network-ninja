@@ -21,8 +21,8 @@ func _process(delta):
 	position += velocity * delta
 	
 	# Face velocity (NOT WORKING!)
-	if velocity.length() > 0.1:
-		transform.looking_at(position + velocity.normalized() * 5.0)
+	#if velocity.length() > 0.1:
+	#	transform.looking_at(position + velocity.normalized() * 5.0)
 		
 	# Spin the mesh
 	$Mesh.rotate_y(-velocity.length() * delta * ROTATION_SPEED)

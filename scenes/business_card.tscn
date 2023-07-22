@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/business_card.gd" id="1_w3bbw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_63qgs"]
+radius = 0.35
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8uu0b"]
 albedo_color = Color(1, 0, 0, 1)
