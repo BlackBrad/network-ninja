@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpwj0yu43ykkr"]
 
 [ext_resource type="PackedScene" uid="uid://x8grald5vr3v" path="res://assets/NPC_networker.glb" id="1_5shm2"]
-[ext_resource type="Material" uid="uid://ddwk6mawuga4f" path="res://assets/materials/NPC_A_mat.tres" id="2_oxlc4"]
+[ext_resource type="Material" uid="uid://dcdyemoeamkji" path="res://assets/materials/NPC_B_mat.tres" id="2_flhv7"]
 
 [sub_resource type="Animation" id="Animation_64dy8"]
 length = 0.001
@@ -419,7 +419,7 @@ bones/10/scale = Vector3(1, 1, 1)
 
 [node name="NPC_networker_geo" parent="Armature/Skeleton3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-material_override = ExtResource("2_oxlc4")
+material_override = ExtResource("2_flhv7")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="3"]
 autoplay = "shuffle"

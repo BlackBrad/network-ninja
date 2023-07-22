@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvb4hmg06stu3"
-path.s3tc="res://.godot/imported/NPC_networker_file1.png-0f013cff0c381bf805c7b42ee38491f1.s3tc.ctex"
+uid="uid://dp2r5mme84mar"
+path.s3tc="res://.godot/imported/NPC_B_diff.png-4bccbeac8a0b371f59c442b987a98ef1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/NPC_networker_file1.png"
-dest_files=["res://.godot/imported/NPC_networker_file1.png-0f013cff0c381bf805c7b42ee38491f1.s3tc.ctex"]
+source_file="res://assets/textures/NPC_B_diff.png"
+dest_files=["res://.godot/imported/NPC_B_diff.png-4bccbeac8a0b371f59c442b987a98ef1.s3tc.ctex"]
 
 [params]
 
