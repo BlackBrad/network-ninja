@@ -40,7 +40,7 @@ func play_random_voice():
 	if sound:
 		var StreamPlayer = $VoicePlayer
 		StreamPlayer.set_stream(sound)
-		StreamPlayer.set_volume_db(100)
+		StreamPlayer.set_volume_db(20)
 		StreamPlayer.play()
 
 func _process(delta):
