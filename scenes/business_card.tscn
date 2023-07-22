@@ -5,11 +5,11 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_63qgs"]
 radius = 0.35
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8uu0b"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1lht"]
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e7jxh"]
-material = SubResource("StandardMaterial3D_8uu0b")
+material = SubResource("StandardMaterial3D_i1lht")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wssh0"]
 spread = 20.0

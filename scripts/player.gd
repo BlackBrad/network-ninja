@@ -100,3 +100,10 @@ func update_hand(new_hand):
 
 	hand = new_hand
 
+func pickup_card(card_type):
+	# Find first 0 slot in hand
+	var index = hand.find(0)
+	if index >= 0:
+		var new_hand = hand
+		new_hand[index] = card_type
+		update_hand(new_hand)

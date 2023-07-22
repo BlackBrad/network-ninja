@@ -34,6 +34,7 @@ layout_mode = 2
 text = "Start Game"
 
 [node name="OptionButton" type="Button" parent="MenuController/MainMenuContainer"]
+visible = false
 layout_mode = 2
 text = "Options"
 

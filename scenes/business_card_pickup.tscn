@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://dobw6bd0pn5uq"]
+
+[ext_resource type="Script" path="res://scripts/business_card_pickup.gd" id="1_exwbm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8uu0b"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_me62c"]
+material = SubResource("StandardMaterial3D_8uu0b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6pfb"]
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_fyke7"]
+material = SubResource("StandardMaterial3D_u6pfb")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_py2di"]
+radius = 0.4
+
+[node name="BusinessCardPickup" type="Area3D"]
+script = ExtResource("1_exwbm")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.499931, 0, -0.00460434, 0, 0.005, 0, 0.00828119, 0, 0.277962, 0, 0, 0)
+mesh = SubResource("BoxMesh_me62c")
+skeleton = NodePath("")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Mesh"]
+visible = false
+mesh = SubResource("QuadMesh_fyke7")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+direction = Vector3(0, 1, 0)
+spread = 113.1
+initial_velocity_min = 0.5
+initial_velocity_max = 1.5
+angular_velocity_min = -233.01
+angular_velocity_max = 350.77
+scale_amount_min = 0.1
+scale_amount_max = 175.83
+hue_variation_min = -0.7
+hue_variation_max = 0.32
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Mesh"]
+light_color = Color(0.905882, 0.901961, 0.211765, 1)
+distance_fade_enabled = true
+distance_fade_begin = 20.0
+distance_fade_length = 5.0
+omni_range = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("SphereShape3D_py2di")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
