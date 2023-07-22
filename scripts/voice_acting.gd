@@ -1,21 +1,21 @@
 extends Node
 
 var file_names = [
-    "data_never_lies.mp3"
-    "lets_do_a_buisness.mp3"
-    "pin_in_it.mp3"
-    "teamwork_makes_the_dreamwork.mp3"
-    "dont_impress_me_much.mp3"
-    "lovely_weather.mp3"
-    "piece_of_onions.mp3"
-    "the_more_the_merrier.mp3"
-    "door_is_always_open.mp3"
-    "monkey_in_silk.mp3"
-    "raise_the_bar.mp3"
-    "win_win_situation.mp3"
-    "if_it_is_as_it_is.mp3"
-    "only_words.mp3"
-    "take_this_offline.mp3"
+	"data_never_lies.mp3",
+	"lets_do_a_buisness.mp3",
+	"pin_in_it.mp3",
+	"teamwork_makes_the_dreamwork.mp3",
+	"dont_impress_me_much.mp3",
+	"lovely_weather.mp3",
+	"piece_of_onions.mp3",
+	"the_more_the_merrier.mp3",
+	"door_is_always_open.mp3",
+	"monkey_in_silk.mp3",
+	"raise_the_bar.mp3",
+	"win_win_situation.mp3",
+	"if_it_is_as_it_is.mp3",
+	"only_words.mp3",
+	"take_this_offline.mp3",
 ]
 
 # Called when the node enters the scene tree for the first time.
