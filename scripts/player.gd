@@ -5,6 +5,7 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENSITIVITY = 0.01
 var business_card_prefab = preload("res://scenes/business_card.tscn")
+var main_menu = preload("res://scenes/main_menu.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -26,6 +27,9 @@ func _input(event):
 		pivot.rotation.x = clamp(pivot.rotation.x - event.relative.y * MOUSE_SENSITIVITY, -0.5 * PI, 0.5 * PI)
 
 		_relative_mouse_motion = event.relative * MOUSE_SENSITIVITY
+	
+	elif Input.is_action_pressed("escape_to_menu"):
+			return_to_menu()
 
 
 func handle_business_card():
@@ -94,3 +98,8 @@ func update_hand(new_hand):
 				child.set_business_card_type(card_type)
 
 	hand = new_hand
+
+func return_to_menu():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	var scene_tree = get_tree()
+	scene_tree.change_scene_to_packed(main_menu)
