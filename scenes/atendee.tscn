@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy3ros6x4injp"]
+[gd_scene load_steps=6 format=3 uid="uid://cy3ros6x4injp"]
 
 [ext_resource type="Script" path="res://scripts/atendee.gd" id="1_jiv06"]
+[ext_resource type="PackedScene" uid="uid://chnweoc7cjafl" path="res://assets/WIP_victim/WIP_victim.gltf" id="2_abf0s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fygdp"]
 
@@ -16,7 +17,11 @@ script = ExtResource("1_jiv06")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_fygdp")
 
+[node name="Mesh" parent="." instance=ExtResource("2_abf0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_8c01e")
 
 [node name="Timer" type="Timer" parent="."]
