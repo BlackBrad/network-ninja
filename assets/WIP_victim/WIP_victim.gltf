@@ -1,0 +1,235 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5125,
+      "count": 726,
+      "max": [
+        457
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 458,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -0.9996258020401001
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 458,
+      "max": [
+        0.42337995767593384,
+        2,
+        0.46791690587997437
+      ],
+      "min": [
+        -0.42337995767593384,
+        -1.1920928955078125e-07,
+        -0.15183037519454956
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 458,
+      "max": [
+        0.97976487874984741,
+        0.98658180236816406
+      ],
+      "min": [
+        0.012348825111985207,
+        0.010127902030944824
+      ],
+      "type": "VEC2"
+    }
+  ],
+  "asset": {
+    "generator": "glTF-Maya-Exporter ver1.6.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 2904,
+      "byteOffset": 0,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 5496,
+      "byteOffset": 2904,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 5496,
+      "byteOffset": 8400,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 3664,
+      "byteOffset": 13896,
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 17560,
+      "uri": "WIP_victim.bin"
+    }
+  ],
+  "extensionsUsed": [
+    "LTE_UDIM_texture",
+    "LTE_PBR_material"
+  ],
+  "materials": [
+    {
+      "alphaMode": "OPAQUE",
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "extensions": {
+        "LTE_PBR_material": {
+          "baseColor": [
+            0,
+            0,
+            0
+          ],
+          "baseWeight": 0,
+          "coatColor": [
+            0,
+            0,
+            0
+          ],
+          "coatIOR": 0,
+          "coatNormal": [
+            0,
+            0,
+            0
+          ],
+          "coatRoughness": 0,
+          "coatWeight": 0,
+          "diffuseRoughness": 0,
+          "emissionColor": [
+            0,
+            0,
+            0
+          ],
+          "emissionWeight": 0,
+          "metalness": 0,
+          "specularAnisotropy": 0,
+          "specularColor": [
+            0,
+            0,
+            0
+          ],
+          "specularIOR": 0,
+          "specularRotation": 0,
+          "specularRoughness": 0,
+          "specularWeight": 0,
+          "subsurfaceAnisotropy": 0,
+          "subsurfaceColor": [
+            0,
+            0,
+            0
+          ],
+          "subsurfaceRadius": [
+            0,
+            0,
+            0
+          ],
+          "subsurfaceScale": 0,
+          "subsurfaceType": "diffusion",
+          "subsurfaceWeight": 0,
+          "transmissionAovs": 0,
+          "transmissionColor": [
+            0,
+            0,
+            0
+          ],
+          "transmissionDepth": 0,
+          "transmissionDispersion": 0,
+          "transmissionExtraRoughness": 0,
+          "transmissionScatter": [
+            0,
+            0,
+            0
+          ],
+          "transmissionScatterAnisotropy": 0,
+          "transmissionWeight": 0
+        }
+      },
+      "name": "lambert1",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.5,
+          0.5,
+          0.5,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "WIP_victim_geoShape",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 0,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "WIP_victim"
+    },
+    {
+      "mesh": 0,
+      "name": "WIP_victim_geo"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}
