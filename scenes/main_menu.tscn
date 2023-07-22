@@ -42,7 +42,7 @@ text = "Exit"
 
 [node name="OptionMenuContainer" type="VBoxContainer" parent="MenuController"]
 visible = false
-custom_minimum_size = Vector2(500, 500)
+custom_minimum_size = Vector2(700, 900)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -58,50 +58,103 @@ grow_vertical = 2
 
 [node name="OptionTabContainer" type="TabContainer" parent="MenuController/OptionMenuContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 tab_alignment = 1
 
 [node name="Sound" type="TabBar" parent="MenuController/OptionMenuContainer/OptionTabContainer"]
 layout_mode = 2
 
 [node name="SoundOptionContainer" type="VBoxContainer" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MasterSoundScrollHContainer" type="HBoxContainer" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer"]
-layout_mode = 2
-
-[node name="MasterSoundLabel" type="Label" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MasterSoundScrollHContainer"]
+[node name="MasterSoundLabel" type="Label" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer"]
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 text = "Master:"
 
-[node name="MasterSoundScroll" type="HScrollBar" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MasterSoundScrollHContainer"]
+[node name="MasterSoundScroll" type="HScrollBar" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer"]
+custom_minimum_size = Vector2(250, 10)
 layout_mode = 2
 value = 50.0
 
-[node name="MasterSoundValueLabel" type="Label" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MasterSoundScrollHContainer/MasterSoundScroll"]
-layout_mode = 2
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="MasterSoundValueLabel" type="Label" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MasterSoundScroll"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+horizontal_alignment = 2
 script = ExtResource("2_evkto")
 
-[node name="MusicSoundScrollHContainer" type="HBoxContainer" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer"]
+[node name="MusicSoundLabel" type="Label" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer"]
 layout_mode = 2
+text = "Music:"
 
-[node name="MusicSoundLabel" type="Label" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MusicSoundScrollHContainer"]
-layout_mode = 2
-text = "Music"
-
-[node name="MusicSoundScroll" type="HScrollBar" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MusicSoundScrollHContainer"]
+[node name="MusicSoundScroll" type="HScrollBar" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer"]
+custom_minimum_size = Vector2(250, 10)
 layout_mode = 2
 value = 50.0
 
-[node name="MusicSoundValueLabel" type="Label" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MusicSoundScrollHContainer/MusicSoundScroll"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="MusicSoundValueLabel" type="Label" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MusicSoundScroll"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+horizontal_alignment = 2
 script = ExtResource("2_evkto")
+
+[node name="MenuConfirmContainer" type="HBoxContainer" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ApplyButton" type="Button" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/MenuConfirmContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Apply"
+
+[node name="VSeparator" type="VSeparator" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/MenuConfirmContainer"]
+light_mask = 0
+visibility_layer = 0
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ReturnButton" type="Button" parent="MenuController/OptionMenuContainer/OptionTabContainer/Sound/MenuConfirmContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Return"
 
 [connection signal="pressed" from="MenuController/MainMenuContainer/StartGameButton" to="MenuController" method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuController/MainMenuContainer/OptionButton" to="MenuController" method="_on_options_button_pressed"]
 [connection signal="pressed" from="MenuController/MainMenuContainer/ExitButton" to="MenuController" method="_on_exit_game_button_pressed"]
+[connection signal="value_changed" from="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MasterSoundScroll" to="MenuController" method="_on_master_sound_scroll_value_changed"]
+[connection signal="value_changed" from="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MasterSoundScroll" to="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MasterSoundScroll/MasterSoundValueLabel" method="_on_h_scroll_bar_value_changed"]
+[connection signal="value_changed" from="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MusicSoundScroll" to="MenuController" method="_on_music_sound_scroll_value_changed"]
+[connection signal="value_changed" from="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MusicSoundScroll" to="MenuController/OptionMenuContainer/OptionTabContainer/Sound/SoundOptionContainer/MusicSoundScroll/MusicSoundValueLabel" method="_on_h_scroll_bar_value_changed"]
+[connection signal="pressed" from="MenuController/OptionMenuContainer/OptionTabContainer/Sound/MenuConfirmContainer/ApplyButton" to="MenuController" method="_save_settings"]
+[connection signal="pressed" from="MenuController/OptionMenuContainer/OptionTabContainer/Sound/MenuConfirmContainer/ReturnButton" to="MenuController" method="_on_return_button_pressed"]

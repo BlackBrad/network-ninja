@@ -5,6 +5,7 @@ var game_start = preload("res://scenes/test_level.tscn")
 
 var settings_file = ConfigFile.new()
 
+# Master, Music, SFX
 var audio_settings: Vector3 = Vector3(50.0, 50.0, 50.0)
 
 @onready var option_menu_container = get_node("OptionMenuContainer")
@@ -24,7 +25,8 @@ func _on_start_button_pressed():
 func _on_options_button_pressed():
 	option_menu_container.visible = true
 	main_menu_container.visible = false
-
+	
+	
 func _save_settings():
 	settings_file.set_value("AUDIO","Master",audio_settings.x)
 	settings_file.set_value("AUDIO","Music",audio_settings.y)
@@ -39,3 +41,17 @@ func _load_settings():
 
 func _on_exit_game_button_pressed():
 	get_tree().quit()
+
+
+func _on_music_sound_scroll_value_changed(value):
+	audio_settings.y = round(value) # Replace with function body.
+
+
+func _on_master_sound_scroll_value_changed(value):
+	audio_settings.x = round(value) # Replace with function body.
+
+
+func _on_return_button_pressed():
+	option_menu_container.visible = false
+	main_menu_container.visible = true
+

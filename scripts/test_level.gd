@@ -16,6 +16,4 @@ func _input(event):
 			return_to_menu()
 
 func return_to_menu():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	var scene_tree = get_tree()
-	scene_tree.change_scene_to_packed(main_menu)
+	get_tree().quit()
