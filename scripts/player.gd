@@ -70,6 +70,7 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("trigger_seagal"):
 		get_tree().call_group("attendees", "_on_seagal")
+		get_tree().call_group("audio", "_on_seagal")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cy3ros6x4injp" path="res://scenes/atendee.tscn" id="2_0xd3t"]
 [ext_resource type="PackedScene" uid="uid://1ne1yvouw68r" path="res://scenes/business_card.tscn" id="3_mvisn"]
 [ext_resource type="AudioStream" uid="uid://cl1de75dcn4st" path="res://audio/music/8bit Bossa-distored.mp3" id="4_h6h16"]
+[ext_resource type="Script" path="res://scripts/Audio.gd" id="5_odctq"]
 [ext_resource type="AudioStream" uid="uid://chft6fpi5hr4" path="res://audio/music/Dark-Intro-distorted-speedup-16.mp3" id="5_xmq4a"]
 [ext_resource type="AudioStream" uid="uid://8otauxw5l60a" path="res://audio/sound_effects/relaxing-music-original-viking-attacking-battle-horn-116623.mp3" id="6_wrhj2"]
 
@@ -72,7 +73,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6316, 2, -7)
 [node name="BusinessCard" parent="." instance=ExtResource("3_mvisn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96033, 2.02865, -5.99932)
 
-[node name="Audio" type="Node" parent="."]
+[node name="Audio" type="Node" parent="." groups=["audio"]]
+script = ExtResource("5_odctq")
 
 [node name="Background" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("4_h6h16")
