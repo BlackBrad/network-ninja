@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gta00"]
 [ext_resource type="Script" path="res://scripts/volume_label.gd" id="2_evkto"]
-[ext_resource type="AudioStream" path="res://audio/music/010614songidea(copycat).mp3" id="3_a67to"]
+[ext_resource type="AudioStream" uid="uid://8yv087qayk3w" path="res://audio/music/010614songidea(copycat).mp3" id="3_a67to"]
 
 [node name="main_menu" type="Node"]
 
@@ -103,11 +103,10 @@ offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("2_evkto")
 
-[connection signal="pressed" from="MenuController/MainMenuContainer/StartGameButton" to="MenuController" method="_on_start_button_pressed"]
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_a67to")
 autoplay = true
 
+[connection signal="pressed" from="MenuController/MainMenuContainer/StartGameButton" to="MenuController" method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuController/MainMenuContainer/OptionButton" to="MenuController" method="_on_options_button_pressed"]
 [connection signal="pressed" from="MenuController/MainMenuContainer/ExitButton" to="MenuController" method="_on_exit_game_button_pressed"]
