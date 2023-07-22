@@ -36,3 +36,11 @@ func load_mp3(path):
 	var sound = AudioStreamMP3.new()
 	sound.data = file.get_buffer((file.get_length()))
 	return sound
+
+func play_random_voice():
+	var random_number_gen = RandomNumberGenerator.new()
+	var index_to_voices = random_number_gen.randi_range(0, file_names.size())
+	var sound = load_mp3(file_names[index_to_voices])
+	var StreamPlayer = AudioStreamPlayer.new()
+	StreamPlayer.stream = sound
+	StreamPlayer.play()
