@@ -8,6 +8,9 @@ var business_card_prefab = preload("res://scenes/business_card.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var _start_drag = Vector2()
+var _end_drag = Vector2()
+var _relative_mouse_motion = Vector2()
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -18,6 +21,9 @@ func _input(event):
 
 		var pivot = $Pivot
 		pivot.rotation.x = clamp(pivot.rotation.x - event.relative.y * MOUSE_SENSITIVITY, -0.5 * PI, 0.5 * PI)
+
+		_relative_mouse_motion = event.relative
+
 
 func handle_business_card():
 	print("spawning business card")
@@ -30,7 +36,11 @@ func handle_business_card():
 	instance.global_position = spawner.global_position
 	
 	var forward = -spawner.global_transform.basis.z
+	var right = spawner.global_transform.basis.x
 	instance.velocity = forward * instance.SPEED + velocity
+	
+	var rel = _end_drag - _start_drag
+	instance.acceleration = right * rel.x * -10.0
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -42,6 +52,9 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		
 	if Input.is_action_just_pressed("fire"):
+		_start_drag = _relative_mouse_motion
+	if Input.is_action_just_released("fire"):
+		_end_drag = _relative_mouse_motion
 		handle_business_card()
 
 	# Get the input direction and handle the movement/deceleration.

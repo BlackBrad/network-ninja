@@ -5,6 +5,7 @@ const FRICTION = 0.1
 const SPEED = 10.0
 const ROTATION_SPEED = 5.0
 var velocity = Vector3()
+var acceleration = Vector3()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,6 +15,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	velocity -= Vector3(FRICTION, FRICTION, FRICTION) * delta
+	velocity += acceleration * delta
 	velocity.y -= GRAVITY * delta
 		
 	position += velocity * delta
