@@ -1,5 +1,9 @@
 extends RigidBody3D
 
+func set_state(transform):
+	$NPC_networker.transform = transform
+	$NPC_networker.start_panic()
+	
 func _physics_process(delta):
 	var pull_point = get_node("/root/test_level/pull_point").global_position
 	var diff = pull_point - global_position

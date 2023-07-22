@@ -7,6 +7,7 @@ const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var mesh = $NPC_networker
 
 var _input_dir = Vector2(0, 0)
 var is_networked = false
@@ -46,12 +47,15 @@ func _physics_process(delta):
 		velocity.x = 0
 		velocity.z = 0
 		
+		# Stop moving animation
+		mesh.stop_moving()
+		
 		# Look at target to observe in horror
 		if target_to_observe:
 			print("Observing %s" % target_to_observe)
-			$Mesh.look_at(target_to_observe.global_position, Vector3.UP, true)
-			$Mesh.rotation.x = 0.0
-			$Mesh.rotation.z = 0.0
+			mesh.look_at(target_to_observe.global_position, Vector3.UP, true)
+			mesh.rotation.x = 0.0
+			mesh.rotation.z = 0.0
 	else:
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
@@ -67,14 +71,16 @@ func _physics_process(delta):
 		
 		# Face direction of motion
 		if Vector3(velocity.x, 0.0, velocity.z).length() > 0.2:
-			$Mesh.look_at($Mesh.global_position - velocity.normalized())
+			mesh.look_at(mesh.global_position - velocity.normalized())
 
 
 func _on_timer_timeout():
 	if velocity.length() > 0.1:
 		_input_dir = Vector2(0, 0)
+		mesh.stop_moving()
 	else:
 		_input_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
+		mesh.start_moving()
 	
 	$Timer.wait_time = randf_range(1, 5)
 	
@@ -91,5 +97,6 @@ func replace_with_rigid_body():
 	var attendee_rigid_body = atendee_rigid_body_prefab.instantiate()
 	get_parent().add_child(attendee_rigid_body)
 	attendee_rigid_body.transform = transform
+	attendee_rigid_body.set_state(mesh.transform)
 	attendee_rigid_body.add_to_group("taken_attendees")
 	queue_free()
