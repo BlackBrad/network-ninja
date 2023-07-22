@@ -27,6 +27,27 @@ transform = Transform3D(0.731532, 0, -0.681807, 0.311356, -0.88964, 0.334064, -0
 [node name="Atendee" parent="." instance=ExtResource("2_0xd3t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, -7)
 
+[node name="Atendee2" parent="." instance=ExtResource("2_0xd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.72784, 2, -7)
+
+[node name="Atendee3" parent="." instance=ExtResource("2_0xd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59248, 2, -7)
+
+[node name="Atendee4" parent="." instance=ExtResource("2_0xd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.962655, 2, -7)
+
+[node name="Atendee5" parent="." instance=ExtResource("2_0xd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9035, 2, -7)
+
+[node name="Atendee6" parent="." instance=ExtResource("2_0xd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.12844, 2, -7)
+
+[node name="Atendee7" parent="." instance=ExtResource("2_0xd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0667, 2, -7)
+
+[node name="Atendee8" parent="." instance=ExtResource("2_0xd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6316, 2, -7)
+
 [node name="BusinessCard" parent="." instance=ExtResource("3_mvisn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96033, 2.02865, -5.99932)
 
