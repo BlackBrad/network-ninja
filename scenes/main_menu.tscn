@@ -104,6 +104,7 @@ offset_bottom = 23.0
 script = ExtResource("2_evkto")
 
 [connection signal="pressed" from="MenuController/MainMenuContainer/StartGameButton" to="MenuController" method="_on_start_button_pressed"]
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_a67to")
 autoplay = true
