@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd7n7yllnkgkt"]
+[gd_scene load_steps=5 format=3 uid="uid://dd7n7yllnkgkt"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1wvgp"]
+[ext_resource type="PackedScene" uid="uid://diwkxjj7yh8gi" path="res://scenes/business_card_view_model.tscn" id="2_cvu7a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_idvwt"]
 
@@ -23,11 +24,27 @@ current = true
 [node name="CardEmitter" type="Node3D" parent="Pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
+[node name="RightArm" type="MeshInstance3D" parent="Pivot"]
 transform = Transform3D(0.271568, 0, -0.0225042, 0, 0.0290728, 0, 0.101978, 0, 0.0599287, 0.134267, -0.143844, -0.370345)
 mesh = SubResource("BoxMesh_b6808")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Pivot/MeshInstance3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Pivot/RightArm"]
 transform = Transform3D(0.346528, 0, -7.45058e-09, 0, 0.314228, 0, 4.76837e-07, 0, 1, -0.624011, 0, 0.27887)
 mesh = SubResource("BoxMesh_b6808")
 skeleton = NodePath("../..")
+
+[node name="LeftArm" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(0.27259, 0.0086113, 0.0109472, 0, 0.0145364, -0.0554384, -0.0992146, 0.0236593, 0.0300771, -0.116721, -0.187019, -0.279701)
+mesh = SubResource("BoxMesh_b6808")
+
+[node name="BusinessCardViewModel0" parent="Pivot/LeftArm" instance=ExtResource("2_cvu7a")]
+transform = Transform3D(0.234941, -6.98492e-09, -5.58794e-08, 6.55651e-07, 0.213042, 5.96046e-08, 5.51343e-07, -4.09782e-08, 0.677986, 0.411926, 0.854376, -0.329046)
+
+[node name="BusinessCardViewModel2" parent="Pivot/LeftArm" instance=ExtResource("2_cvu7a")]
+transform = Transform3D(0.234941, -6.98492e-09, -6.51926e-08, 6.55651e-07, 0.213042, 5.96046e-08, 5.51343e-07, -4.84288e-08, 0.677986, 0.163058, 0.854375, -0.329046)
+
+[node name="BusinessCardViewModel3" parent="Pivot/LeftArm" instance=ExtResource("2_cvu7a")]
+transform = Transform3D(0.234941, -8.3819e-09, -7.63685e-08, 6.55651e-07, 0.213042, 1.19209e-07, 5.51343e-07, -5.21541e-08, 0.677986, -0.0852501, 0.854374, -0.329046)
+
+[node name="BusinessCardViewModel4" parent="Pivot/LeftArm" instance=ExtResource("2_cvu7a")]
+transform = Transform3D(0.234941, -9.77889e-09, -8.9407e-08, 6.55651e-07, 0.213042, 1.19209e-07, 5.51343e-07, -5.58794e-08, 0.677986, -0.335209, 0.854374, -0.329046)

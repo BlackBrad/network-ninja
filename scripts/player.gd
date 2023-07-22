@@ -6,14 +6,18 @@ const JUMP_VELOCITY = 4.5
 const MOUSE_SENSITIVITY = 0.01
 var business_card_prefab = preload("res://scenes/business_card.tscn")
 
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var _start_drag = Vector2()
 var _end_drag = Vector2()
 var _relative_mouse_motion = Vector2()
 
+var hand = [0,0,0,0]
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	update_hand([3, 1, 2, 0])
 		
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -22,7 +26,7 @@ func _input(event):
 		var pivot = $Pivot
 		pivot.rotation.x = clamp(pivot.rotation.x - event.relative.y * MOUSE_SENSITIVITY, -0.5 * PI, 0.5 * PI)
 
-		_relative_mouse_motion = event.relative
+		_relative_mouse_motion = event.relative * MOUSE_SENSITIVITY
 
 
 func handle_business_card():
@@ -40,7 +44,14 @@ func handle_business_card():
 	instance.velocity = forward * instance.SPEED + velocity
 	
 	var rel = _end_drag - _start_drag
-	instance.acceleration = right * rel.x * -10.0
+	print("%f %f" % [rel.x, rel.y])
+	instance.acceleration = right * rel.x * -1000.0
+	
+	# Update hand
+	var new_hand = hand
+	new_hand.pop_front()
+	new_hand.append(0)
+	update_hand(new_hand)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -56,6 +67,9 @@ func _physics_process(delta):
 	if Input.is_action_just_released("fire"):
 		_end_drag = _relative_mouse_motion
 		handle_business_card()
+		
+	if Input.is_action_just_pressed("trigger_seagal"):
+		get_tree().call_group("attendees", "_on_seagal")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -69,3 +83,19 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func update_hand(new_hand):
+	assert(new_hand.size() == 4)
+	for child in $Pivot/LeftArm.get_children():
+		child.visible = false
+	
+	for i in range(0,3):
+		var card_type = new_hand[i]
+		if card_type != 0:
+			var child = $Pivot/LeftArm.get_child(i)
+			if child:
+				child.visible = true
+				child.set_business_card_type(card_type)
+
+	hand = new_hand
+

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://diwkxjj7yh8gi"]
+
+[ext_resource type="Script" path="res://scripts/business_card_view_model.gd" id="1_vtet2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgnhw"]
+albedo_color = Color(0.693888, 0.644172, 0.119429, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b6808"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nndb"]
+albedo_color = Color(0.121569, 0.262745, 0.721569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4s8ah"]
+albedo_color = Color(0, 0.541176, 0.160784, 1)
+
+[node name="BusinessCardViewModel" type="Node3D"]
+script = ExtResource("1_vtet2")
+
+[node name="YellowCard" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_xgnhw")
+mesh = SubResource("BoxMesh_b6808")
+skeleton = NodePath("../..")
+
+[node name="BlueCard" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_1nndb")
+mesh = SubResource("BoxMesh_b6808")
+skeleton = NodePath("../..")
+
+[node name="GreenCard" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_4s8ah")
+mesh = SubResource("BoxMesh_b6808")
+skeleton = NodePath("../..")
