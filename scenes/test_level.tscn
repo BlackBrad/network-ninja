@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcp57wnxwqpe2"]
+[gd_scene load_steps=10 format=3 uid="uid://dcp57wnxwqpe2"]
 
 [ext_resource type="PackedScene" uid="uid://dd7n7yllnkgkt" path="res://scenes/player.tscn" id="1_wn24y"]
 [ext_resource type="PackedScene" uid="uid://cy3ros6x4injp" path="res://scenes/atendee.tscn" id="2_0xd3t"]
 [ext_resource type="PackedScene" uid="uid://1ne1yvouw68r" path="res://scenes/business_card.tscn" id="3_mvisn"]
 [ext_resource type="AudioStream" uid="uid://cl1de75dcn4st" path="res://audio/music/8bit Bossa-distored.mp3" id="4_h6h16"]
 [ext_resource type="AudioStream" uid="uid://chft6fpi5hr4" path="res://audio/music/Dark-Intro-distorted-speedup-16.mp3" id="5_xmq4a"]
+[ext_resource type="AudioStream" uid="uid://8otauxw5l60a" path="res://audio/sound_effects/relaxing-music-original-viking-attacking-battle-horn-116623.mp3" id="6_wrhj2"]
 
 [sub_resource type="Environment" id="Environment_8wp53"]
 ambient_light_source = 2
@@ -90,7 +91,7 @@ mesh = SubResource("CapsuleMesh_efkhg")
 skeleton = NodePath("../..")
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.262182, -0.355351, -0.89721, -0.706568, 0.703936, -0.0723293, 0.65728, 0.614977, -0.435641, 0.84043, 0.0419317, 0.807321)
+transform = Transform3D(-0.262182, -0.355351, -0.89721, -0.706568, 0.703936, -0.0723294, 0.65728, 0.614977, -0.435641, 0.84043, 0.0419317, 0.807321)
 progress = 0.361258
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D2"]
@@ -108,7 +109,7 @@ mesh = SubResource("CapsuleMesh_efkhg")
 skeleton = NodePath("../..")
 
 [node name="PathFollow3D4" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.0678202, -0.275377, -0.95894, -0.682584, 0.713804, -0.156707, 0.727648, 0.643931, -0.23638, 1.44778, 0.10675, 1.05644)
+transform = Transform3D(-0.0678203, -0.275377, -0.95894, -0.682584, 0.713804, -0.156707, 0.727648, 0.643931, -0.236379, 1.44778, 0.10675, 1.05644)
 progress = 1.01599
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D4"]
@@ -125,3 +126,6 @@ autoplay = true
 
 [node name="Consumption Sound" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("5_xmq4a")
+
+[node name="War Horn" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("6_wrhj2")
