@@ -1,16 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://dcp57wnxwqpe2"]
 
-[ext_resource type="Script" path="res://scripts/test_level.gd" id="1_3skex"]
 [ext_resource type="PackedScene" uid="uid://dd7n7yllnkgkt" path="res://scenes/player.tscn" id="1_wn24y"]
 [ext_resource type="PackedScene" uid="uid://cy3ros6x4injp" path="res://scenes/atendee.tscn" id="2_0xd3t"]
 [ext_resource type="PackedScene" uid="uid://1ne1yvouw68r" path="res://scenes/business_card.tscn" id="3_mvisn"]
+[ext_resource type="AudioStream" uid="uid://cl1de75dcn4st" path="res://audio/music/8bit Bossa-distored.mp3" id="4_h6h16"]
 
 [sub_resource type="Environment" id="Environment_8wp53"]
 ambient_light_source = 2
 ambient_light_color = Color(0.243137, 0.341176, 0.329412, 1)
 
 [node name="test_level" type="Node3D"]
-script = ExtResource("1_3skex")
 
 [node name="Ground" type="CSGBox3D" parent="."]
 use_collision = true
@@ -28,5 +27,31 @@ transform = Transform3D(0.731532, 0, -0.681807, 0.311356, -0.88964, 0.334064, -0
 [node name="Atendee" parent="." instance=ExtResource("2_0xd3t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, -7)
 
+[node name="Atendee2" parent="." instance=ExtResource("2_0xd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.72784, 2, -7)
+
+[node name="Atendee3" parent="." instance=ExtResource("2_0xd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59248, 2, -7)
+
+[node name="Atendee4" parent="." instance=ExtResource("2_0xd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.962655, 2, -7)
+
+[node name="Atendee5" parent="." instance=ExtResource("2_0xd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9035, 2, -7)
+
+[node name="Atendee6" parent="." instance=ExtResource("2_0xd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.12844, 2, -7)
+
+[node name="Atendee7" parent="." instance=ExtResource("2_0xd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0667, 2, -7)
+
+[node name="Atendee8" parent="." instance=ExtResource("2_0xd3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6316, 2, -7)
+
 [node name="BusinessCard" parent="." instance=ExtResource("3_mvisn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96033, 2.02865, -5.99932)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_h6h16")
+volume_db = -28.403
+autoplay = true
