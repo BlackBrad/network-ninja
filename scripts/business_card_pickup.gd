@@ -3,6 +3,10 @@ extends Area3D
 var t = 0.0
 @export var amplitude = 0.4
 @export var frequency = 1.5
+@export var card_type = 1
+
+func _ready():
+	$Mesh.set_business_card_type(card_type)
 
 func _process(delta):
 	# Sin wave bob
@@ -15,5 +19,5 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		# TODO: Give player card back?
 		print("picked up business card")
-		body.pickup_card(1)
+		body.pickup_card(card_type)
 		queue_free()

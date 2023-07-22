@@ -30,11 +30,21 @@ func _input(event):
 
 
 func handle_business_card():
+	# Update hand
+	var new_hand = hand
+	var card_type = new_hand.pop_front()
+	if not card_type:
+		card_type = 1 # If player hand empty spawn default card type
+	new_hand.append(0)
+	update_hand(new_hand)
+	
 	print("spawning business card")
+	
 	# FIXME: Don't hard-code this, need to spawn the nodes under something in all our levels
 	var root = get_node("/root/test_level")
 	# TODO: Do we need to look at pooling these for perf
 	var instance = business_card_prefab.instantiate()
+	instance.card_type = card_type
 	root.add_child(instance)
 	var spawner = $Pivot/Camera3D/CardEmitter
 	instance.global_position = spawner.global_position
@@ -46,12 +56,7 @@ func handle_business_card():
 	var rel = _end_drag - _start_drag
 	print("%f %f" % [rel.x, rel.y])
 	instance.acceleration = right * rel.x * -1000.0
-	
-	# Update hand
-	var new_hand = hand
-	new_hand.pop_front()
-	new_hand.append(0)
-	update_hand(new_hand)
+
 
 func _physics_process(delta):
 	# Add the gravity.
