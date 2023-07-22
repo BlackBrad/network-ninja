@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcp57wnxwqpe2"]
+[gd_scene load_steps=8 format=3 uid="uid://dcp57wnxwqpe2"]
 
 [ext_resource type="PackedScene" uid="uid://dd7n7yllnkgkt" path="res://scenes/player.tscn" id="1_wn24y"]
 [ext_resource type="PackedScene" uid="uid://cy3ros6x4injp" path="res://scenes/atendee.tscn" id="2_0xd3t"]
@@ -9,9 +9,34 @@
 ambient_light_source = 2
 ambient_light_color = Color(0.243137, 0.341176, 0.329412, 1)
 
+[sub_resource type="Curve3D" id="Curve3D_mc72t"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.519705, 0.0187464, 0.643884, -0.19832, -0.0662155, 0.0487156, 0.19832, 0.0662155, -0.0487156, 1.60011, 0.13924, 1.07206, 0, 0, 0, 0, 0, 0, 1.76395, 0.682754, 0.426758, 0, 0, 0, 0, 0, 0, 0.652574, 0.411345, 0.0717184),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_efkhg"]
+
 [node name="test_level" type="Node3D"]
 
-[node name="Ground" type="CSGBox3D" parent="."]
+[node name="pull_point" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.5802)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 15)
+size = Vector3(30, 8, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 15)
+operation = 2
+size = Vector3(3, 4, 2)
+
+[node name="Ground" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 use_collision = true
 size = Vector3(30, 0.2, 30)
 
@@ -55,3 +80,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96033, 2.02865, -5.99932)
 stream = ExtResource("4_h6h16")
 volume_db = -28.403
 autoplay = true
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+curve = SubResource("Curve3D_mc72t")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.368428, -0.0958741, -0.924699, 3.72528e-09, 0.994667, -0.103129, 0.929654, -0.0379956, -0.366465, 0.519705, 0.0187464, 0.643884)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
+transform = Transform3D(0.179043, -3.72529e-09, 3.72529e-09, 3.72529e-09, 3.25963e-09, -0.179043, 0, 0.179043, -2.37487e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_efkhg")
+skeleton = NodePath("../..")
+
+[node name="PathFollow3D2" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.262179, -0.355349, -0.897211, -0.706568, 0.703936, -0.0723301, 0.657281, 0.614978, -0.435638, 0.84043, 0.0419319, 0.80732)
+progress = 0.361258
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D2"]
+transform = Transform3D(0.179043, -3.72529e-09, 3.72529e-09, 3.72529e-09, 3.25963e-09, -0.179043, 0, 0.179043, -2.37487e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_efkhg")
+skeleton = NodePath("../..")
+
+[node name="PathFollow3D3" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.193728, -0.327184, -0.924888, -0.699967, 0.706652, -0.103365, 0.687392, 0.627368, -0.365918, 1.2148, 0.0768277, 0.975483)
+progress = 0.778199
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D3"]
+transform = Transform3D(0.179043, -3.72529e-09, 3.72529e-09, 3.72529e-09, 3.25963e-09, -0.179043, 0, 0.179043, -2.37487e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_efkhg")
+skeleton = NodePath("../..")
+
+[node name="PathFollow3D4" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.0678135, -0.275374, -0.958942, -0.682583, 0.713804, -0.156709, 0.727649, 0.643933, -0.236373, 1.44778, 0.106751, 1.05644)
+progress = 1.01599
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D4"]
+transform = Transform3D(0.179043, -3.72529e-09, 3.72529e-09, 3.72529e-09, 3.25963e-09, -0.179043, 0, 0.179043, -2.37487e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_efkhg")
+skeleton = NodePath("../..")
