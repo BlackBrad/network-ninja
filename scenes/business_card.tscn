@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://1ne1yvouw68r"]
+[gd_scene load_steps=8 format=3 uid="uid://1ne1yvouw68r"]
 
 [ext_resource type="Script" path="res://scripts/business_card.gd" id="1_w3bbw"]
 
@@ -11,19 +11,26 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_e7jxh"]
 material = SubResource("StandardMaterial3D_8uu0b")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mtbt"]
-shading_mode = 0
-disable_receive_shadows = true
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-use_particle_trails = true
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wssh0"]
+spread = 20.0
+gravity = Vector3(0, -2, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+collision_mode = 1
+collision_friction = 0.35
+collision_bounce = 0.7
 
-[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_aokmm"]
-material = SubResource("StandardMaterial3D_6mtbt")
-size = 0.2
-sections = 3
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2x2l3"]
+transparency = 1
+albedo_color = Color(0.658824, 0.105882, 0.105882, 0.592157)
+emission_enabled = true
+emission = Color(0.388235, 0.360784, 0.0470588, 1)
+emission_energy_multiplier = 1.94
+
+[sub_resource type="SphereMesh" id="SphereMesh_rgowp"]
+material = SubResource("StandardMaterial3D_2x2l3")
+radius = 0.009
+height = 0.018
 
 [node name="BusinessCard" type="Area3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -38,11 +45,12 @@ transform = Transform3D(0.107739, 0, -0.000996923, 0, 0.00125324, 0, 0.00178466,
 mesh = SubResource("BoxMesh_e7jxh")
 skeleton = NodePath("")
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="Mesh"]
-transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-visible = false
-lifetime = 0.1
-mesh = SubResource("RibbonTrailMesh_aokmm")
-scale_amount_min = 0.2
+[node name="WackyTrail" type="GPUParticles3D" parent="."]
+amount = 120
+lifetime = 2.0
+explosiveness = 0.08
+randomness = 0.32
+process_material = SubResource("ParticleProcessMaterial_wssh0")
+draw_pass_1 = SubResource("SphereMesh_rgowp")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
