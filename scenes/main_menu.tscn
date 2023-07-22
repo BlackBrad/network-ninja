@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2ts2qowj18hm"]
+[gd_scene load_steps=4 format=3 uid="uid://d2ts2qowj18hm"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gta00"]
 [ext_resource type="Script" path="res://scripts/volume_label.gd" id="2_evkto"]
+[ext_resource type="AudioStream" uid="uid://8yv087qayk3w" path="res://audio/music/010614songidea(copycat).mp3" id="3_a67to"]
 
 [node name="main_menu" type="Node"]
 
@@ -148,6 +149,10 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Return"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_a67to")
+autoplay = true
 
 [connection signal="pressed" from="MenuController/MainMenuContainer/StartGameButton" to="MenuController" method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuController/MainMenuContainer/OptionButton" to="MenuController" method="_on_options_button_pressed"]

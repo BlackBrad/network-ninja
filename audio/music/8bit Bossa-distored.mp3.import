@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cl1de75dcn4st"
+path="res://.godot/imported/8bit Bossa-distored.mp3-d56ddc4ddf7b18122429909f3185a45a.mp3str"
+
+[deps]
+
+source_file="res://audio/music/8bit Bossa-distored.mp3"
+dest_files=["res://.godot/imported/8bit Bossa-distored.mp3-d56ddc4ddf7b18122429909f3185a45a.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

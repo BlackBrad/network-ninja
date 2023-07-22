@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+var atendee_rigid_body_prefab = preload("res://scenes/atendee_rigid_body.tscn")
 
 const SPEED = 2.0
 const JUMP_VELOCITY = 4.5
@@ -9,6 +10,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var _input_dir = Vector2(0, 0)
 var is_networked = false
+var is_observing = false
+var target_to_observe = null
 
 func _ready():
 	update_is_networked()
@@ -22,21 +25,49 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = (transform.basis * Vector3(_input_dir.x, 0, _input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+	if is_observing:
+		if target_to_observe == null:
+			# Find nearest attendee who is networked
+			var taken_attendees = get_tree().get_nodes_in_group("taken_attendees")
+			print(taken_attendees)
+			var closest = null
+			var closest_dist = 1000.0
+			for attendee in taken_attendees:
+				var dist = (attendee.global_position - global_position).length()
+				if dist < closest_dist:
+					closest = attendee
+					closest_dist = dist
+			
+			# Set to target to observe
+			target_to_observe = closest
+			print("Setting Observing to %s" % closest)
+			
+		# Zero velocity
+		velocity.x = 0
+		velocity.z = 0
+		
+		# Look at target to observe in horror
+		if target_to_observe:
+			print("Observing %s" % target_to_observe)
+			$Mesh.look_at(target_to_observe.global_position, Vector3.UP, true)
+			$Mesh.rotation.x = 0.0
+			$Mesh.rotation.z = 0.0
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var direction = (transform.basis * Vector3(_input_dir.x, 0, _input_dir.y)).normalized()
+		if direction:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
 
-	move_and_slide()
-	
-	# Face direction of motion
-	if Vector3(velocity.x, 0.0, velocity.z).length() > 0.2:
-		$Mesh.look_at($Mesh.global_position - velocity.normalized())
+		move_and_slide()
+		
+		# Face direction of motion
+		if Vector3(velocity.x, 0.0, velocity.z).length() > 0.2:
+			$Mesh.look_at($Mesh.global_position - velocity.normalized())
 
 
 func _on_timer_timeout():
@@ -46,7 +77,19 @@ func _on_timer_timeout():
 		_input_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 	
 	$Timer.wait_time = randf_range(1, 5)
+	
+func _on_seagal():
+	if is_networked:
+		replace_with_rigid_body()
+	else:
+		is_observing = true
 
 func update_is_networked():
 	$NetworkedVisualization.visible = is_networked
 	
+func replace_with_rigid_body():
+	var attendee_rigid_body = atendee_rigid_body_prefab.instantiate()
+	get_parent().add_child(attendee_rigid_body)
+	attendee_rigid_body.transform = transform
+	attendee_rigid_body.add_to_group("taken_attendees")
+	queue_free()
