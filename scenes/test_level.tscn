@@ -79,10 +79,11 @@ script = ExtResource("5_odctq")
 [node name="Background" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("4_h6h16")
 volume_db = -28.403
-autoplay = true
 
 [node name="Consumption Sound" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("5_xmq4a")
 
 [node name="War Horn" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("6_wrhj2")
+
+[node name="VoicePlayer" type="AudioStreamPlayer" parent="Audio"]

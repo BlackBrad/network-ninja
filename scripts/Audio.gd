@@ -27,15 +27,22 @@ var file_path = "audio/voices/bitcrushed/%s"
 
 func load_mp3(path):
 	var file = FileAccess.open(path, FileAccess.READ)
-	var sound = AudioStreamMP3.new()
-	sound.data = file.get_buffer((file.get_length()))
-	return sound
+	if file:
+		var sound = AudioStreamMP3.new()
+		sound.data = file.get_buffer((file.get_length()))
+		return sound
 
 func play_random_voice():
 	var random_number_gen = RandomNumberGenerator.new()
-	var index_to_voices = random_number_gen.randi_range(0, file_names.size())
+	var index_to_voices = random_number_gen.randi_range(0, file_names.size() - 1)
 	var sound = load_mp3(file_path % file_names[index_to_voices])
-	var StreamPlayer = AudioStreamPlayer.new()
-	StreamPlayer.set_stream(sound)
-	StreamPlayer.set_volume_db(100)
-	StreamPlayer.play()
+	print(file_path % file_names[index_to_voices])
+	if sound:
+		var StreamPlayer = $VoicePlayer
+		StreamPlayer.set_stream(sound)
+		StreamPlayer.set_volume_db(100)
+		StreamPlayer.play()
+
+func _process(delta):
+	if Input.is_action_just_pressed("fire"):
+		play_random_voice()
