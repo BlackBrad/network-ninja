@@ -35,7 +35,11 @@ func handle_business_card():
 	var card_type = new_hand.pop_front()
 	if not card_type:
 		card_type = CardTypes.A # If player hand empty spawn default card type
-	new_hand.append(CardTypes.EMPTY)
+	var last_card = new_hand.back()
+	var new_card = randi_range(CardTypes.A, CardTypes.SPECIAL)
+	while new_card == last_card:
+		new_card = randi_range(CardTypes.A, CardTypes.SPECIAL)
+	new_hand.append(new_card)
 	update_hand(new_hand)
 	
 	print("spawning business card")
