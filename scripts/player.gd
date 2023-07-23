@@ -124,3 +124,5 @@ func pickup_card(card_type):
 		var new_hand = hand
 		new_hand[index] = card_type
 		update_hand(new_hand)
+		
+	$SuckCard.play()
