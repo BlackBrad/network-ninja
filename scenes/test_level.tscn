@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcp57wnxwqpe2"]
+[gd_scene load_steps=10 format=3 uid="uid://dcp57wnxwqpe2"]
 
 [ext_resource type="PackedScene" uid="uid://dwtb7l5ft0omk" path="res://scenes/hud.tscn" id="1_tntyl"]
 [ext_resource type="PackedScene" uid="uid://dd7n7yllnkgkt" path="res://scenes/player.tscn" id="1_wn24y"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/Audio.gd" id="5_odctq"]
 [ext_resource type="AudioStream" uid="uid://chft6fpi5hr4" path="res://audio/music/Dark-Intro-distorted-speedup-16.mp3" id="5_xmq4a"]
 [ext_resource type="AudioStream" uid="uid://8otauxw5l60a" path="res://audio/sound_effects/relaxing-music-original-viking-attacking-battle-horn-116623.mp3" id="6_wrhj2"]
+[ext_resource type="Script" path="res://scripts/LevelTimer.gd" id="8_rudoo"]
 
 [sub_resource type="Environment" id="Environment_8wp53"]
 ambient_light_source = 2
@@ -15,6 +16,12 @@ ambient_light_color = Color(0.243137, 0.341176, 0.329412, 1)
 [node name="test_level" type="Node3D"]
 
 [node name="hud" parent="." instance=ExtResource("1_tntyl")]
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+script = ExtResource("8_rudoo")
 
 [node name="pull_point" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.5802)
@@ -84,3 +91,5 @@ stream = ExtResource("5_xmq4a")
 stream = ExtResource("6_wrhj2")
 
 [node name="VoicePlayer" type="AudioStreamPlayer" parent="Audio"]
+
+[connection signal="timeout" from="LevelTimer" to="hud" method="_on_level_timer_timeout"]

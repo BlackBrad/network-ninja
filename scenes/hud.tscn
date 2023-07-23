@@ -55,3 +55,12 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme = SubResource("Theme_8ibhn")
 text = "Score: 0"
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 387.0
+offset_top = 4.0
+offset_right = 1071.0
+offset_bottom = 93.0
+theme = SubResource("Theme_8ibhn")
+text = "Time Remaining: 0s"
+horizontal_alignment = 1
