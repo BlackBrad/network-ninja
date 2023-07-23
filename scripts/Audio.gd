@@ -27,7 +27,14 @@ var file_names = [
 ]
 
 var file_path = "audio/voices/bitcrushed-rerecorded/%s"
+var replay_timer = Timer.new()
 
+func _ready():
+	replay_timer.set_one_shot(true)
+	replay_timer.set_wait_time(3)
+	replay_timer.connect("timeout", $Background.play())
+	add_child(replay_timer)
+	
 func load_mp3(path):
 	var file = FileAccess.open(path, FileAccess.READ)
 	if file:
@@ -49,3 +56,7 @@ func play_random_voice():
 func _process(delta):
 	if Input.is_action_just_pressed("debug_random_voice"):
 		play_random_voice()
+	
+	if $Background.is_playing() == false:
+		if $"War Horn".is_playing() == false and replay_timer.is_stopped() == true:
+			replay_timer.start()
