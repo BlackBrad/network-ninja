@@ -78,8 +78,9 @@ func _physics_process(delta):
 		handle_business_card()
 		
 	if Input.is_action_just_pressed("trigger_seagal"):
-		get_tree().call_group("attendees", "_on_seagal")
-		get_tree().call_group("audio", "_on_seagal")
+		# FIXME: Don't hard-code this, need to spawn the nodes under something in all our levels
+		var hud = get_node("/root/test_level/hud")
+		hud._on_level_timer_timeout()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
