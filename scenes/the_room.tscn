@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://5nh4xmr1vi8y"]
+[gd_scene load_steps=8 format=3 uid="uid://dfb8lajptnv6"]
 
 [ext_resource type="PackedScene" uid="uid://xj1xlh8tbh2a" path="res://assets/room/room_floor.tscn" id="1_2jtb1"]
 [ext_resource type="PackedScene" uid="uid://cqctfuusgprwe" path="res://assets/networkers/networker_A.tscn" id="2_b7o6c"]
 [ext_resource type="PackedScene" uid="uid://cmo3sfbnu7x0d" path="res://assets/room/room_pillar.tscn" id="4_yc3fx"]
 [ext_resource type="PackedScene" uid="uid://cy65c8hnuki" path="res://assets/room/room_wall_plain.tscn" id="5_rlgui"]
+[ext_resource type="PackedScene" uid="uid://c2o5q02lwa27e" path="res://assets/room/room_curtain.tscn" id="6_5aavi"]
 [ext_resource type="PackedScene" uid="uid://kkjo01sfkpxb" path="res://assets/room/room_doorway.tscn" id="6_5uj2y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sl4wl"]
@@ -237,7 +238,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -37)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -37)
 
 [node name="room_wall_plain_geo2" parent="walls_grp" instance=ExtResource("5_rlgui")]
-transform = Transform3D(0.999988, 0.000147372, 0.00492923, -0.00015217, 1, 0.000972727, -0.00492909, -0.000973465, 0.999987, 38, 0, -36)
+transform = Transform3D(0.999988, 0.000147372, 0.00492923, -0.00015217, 1, 0.000972727, -0.00492909, -0.000973465, 0.999987, 40, 0, -37)
 
 [node name="room_wall_plain_geo3" parent="walls_grp" instance=ExtResource("5_rlgui")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 37, 0, -30)
@@ -320,10 +321,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -37)
 [node name="pillars_grp" type="Node3D" parent="."]
 
 [node name="room_pillar_geo" parent="pillars_grp" instance=ExtResource("4_yc3fx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -35)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 0, -35)
 
 [node name="room_pillar_geo2" parent="pillars_grp" instance=ExtResource("4_yc3fx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -36)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, -35)
 
 [node name="room_pillar_geo3" parent="pillars_grp" instance=ExtResource("4_yc3fx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 40)
@@ -346,5 +347,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 [node name="room_pillar_geo9" parent="pillars_grp" instance=ExtResource("4_yc3fx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -19)
 
+[node name="room_pillar_geo11" parent="pillars_grp" instance=ExtResource("4_yc3fx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -35)
+
+[node name="room_pillar_geo12" parent="pillars_grp" instance=ExtResource("4_yc3fx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -35)
+
 [node name="room_pillar_geo10" parent="pillars_grp" instance=ExtResource("4_yc3fx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -19)
+
+[node name="room_curtain" parent="." instance=ExtResource("6_5aavi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.0679, 0, -34.9607)
+
+[node name="room_curtain3" parent="." instance=ExtResource("6_5aavi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9321, 0, -34.9607)
+
+[node name="room_curtain4" parent="." instance=ExtResource("6_5aavi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9321, 0, -34.9607)
+
+[node name="room_curtain2" parent="." instance=ExtResource("6_5aavi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.0679, 0, -34.9607)

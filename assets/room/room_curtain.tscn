@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2o5q02lwa27e"]
+
+[ext_resource type="PackedScene" uid="uid://23bgiqqwksw3" path="res://assets/models/room_curtain.glb" id="1_1fp5l"]
+[ext_resource type="Material" uid="uid://bwgyb4h4otn51" path="res://assets/materials/curtain_mat.tres" id="2_c501b"]
+
+[node name="room_curtain" instance=ExtResource("1_1fp5l")]
+
+[node name="room_curtain_geo" parent="room_curtain2" index="0"]
+material_override = ExtResource("2_c501b")
