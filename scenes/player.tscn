@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd7n7yllnkgkt"]
+[gd_scene load_steps=5 format=3 uid="uid://dd7n7yllnkgkt"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1wvgp"]
 [ext_resource type="PackedScene" uid="uid://bl5jlte0tuf3e" path="res://scenes/business_card_view_model.tscn" id="2_cvu7a"]
-[ext_resource type="AudioStream" uid="uid://ddohn4hcmin61" path="res://audio/sound_effects/sucking_up_cards.mp3" id="3_7hu2g"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_idvwt"]
 
@@ -47,6 +46,3 @@ transform = Transform3D(1, -2.7907e-06, -9.85627e-06, 2.7907e-06, 1, 1.02819e-06
 
 [node name="BusinessCardViewModel4" parent="Pivot/LeftArm" instance=ExtResource("2_cvu7a")]
 transform = Transform3D(1, -2.7907e-06, -9.85627e-06, 2.7907e-06, 1, 1.10163e-06, 2.34673e-06, -2.62299e-07, 4.2, -0.335209, 0.854374, -0.329046)
-
-[node name="SuckCard" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_7hu2g")

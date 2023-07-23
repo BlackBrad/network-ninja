@@ -13,3 +13,4 @@ func set_time_remaining(time):
 func _on_level_timer_timeout():
 	get_tree().call_group("attendees", "_on_seagal")
 	get_tree().call_group("audio", "_on_seagal")
+	$RestartTimer.start()

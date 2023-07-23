@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcp57wnxwqpe2"]
+[gd_scene load_steps=11 format=3 uid="uid://dcp57wnxwqpe2"]
 
 [ext_resource type="PackedScene" uid="uid://dwtb7l5ft0omk" path="res://scenes/hud.tscn" id="1_tntyl"]
 [ext_resource type="PackedScene" uid="uid://dd7n7yllnkgkt" path="res://scenes/player.tscn" id="1_wn24y"]
 [ext_resource type="PackedScene" uid="uid://cy3ros6x4injp" path="res://scenes/atendee.tscn" id="2_0xd3t"]
+[ext_resource type="Script" path="res://scripts/RestartTimer.gd" id="3_arute"]
 [ext_resource type="AudioStream" uid="uid://cl1de75dcn4st" path="res://audio/music/8bit Bossa-distored.mp3" id="4_h6h16"]
 [ext_resource type="Script" path="res://scripts/Audio.gd" id="5_odctq"]
 [ext_resource type="AudioStream" uid="uid://chft6fpi5hr4" path="res://audio/music/Dark-Intro-distorted-speedup-16.mp3" id="5_xmq4a"]
@@ -17,8 +18,13 @@ ambient_light_color = Color(0.243137, 0.341176, 0.329412, 1)
 
 [node name="hud" parent="." instance=ExtResource("1_tntyl")]
 
+[node name="RestartTimer" type="Timer" parent="hud"]
+wait_time = 15.0
+one_shot = true
+script = ExtResource("3_arute")
+
 [node name="LevelTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 120.0
 one_shot = true
 autostart = true
 script = ExtResource("8_rudoo")
