@@ -7,15 +7,20 @@ const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-@onready var mesh = $NPC_networker
+@onready var mesh = $VariantController
 
 var _input_dir = Vector2(0, 0)
 var is_networked = false
 var is_observing = false
 var target_to_observe = null
 
+var variant = 0
+
 func _ready():
 	update_is_networked()
+	variant = randi_range(0, 4)
+	mesh.variant = variant
+	mesh.update_mesh()
 	
 func set_is_networked(networked):
 	is_networked = networked
@@ -94,6 +99,7 @@ func update_is_networked():
 	
 func replace_with_rigid_body():
 	var attendee_rigid_body = atendee_rigid_body_prefab.instantiate()
+	attendee_rigid_body.variant = variant
 	get_parent().add_child(attendee_rigid_body)
 	attendee_rigid_body.transform = transform
 	attendee_rigid_body.set_state(mesh.transform)

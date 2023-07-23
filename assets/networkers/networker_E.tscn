@@ -234,7 +234,7 @@ bones/12/rotation = Quaternion(-4.10948e-34, 0, -1.4806e-17, 1)
 material_override = ExtResource("3_3df44")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(-1, 2.11388e-08, 5.96046e-08, 2.11388e-08, 1, 3.82601e-08, -5.96046e-08, 3.82601e-08, -1, 4.39567e-07, 2.98023e-08, -1.6094)
+transform = Transform3D(-1, 2.11388e-08, 5.96046e-08, 2.11388e-08, 1, 3.82601e-08, -5.96046e-08, 3.82601e-08, -1, 8.12096e-07, -1.11759e-08, -1.6094)
 bone_name = "neck_jnt"
 bone_idx = 6
 
