@@ -18,13 +18,13 @@ Voices
 "That don't impress me much"
 "What's that got to do with the price of onions?"
 "Give someone a finger and they'll take an arm"
-"A monkey dresses in silk is still a monkey"
+"A monkey dressed in silk is still a monkey"
 "It's a bull market at the moment"
 "You need to buy sell trade"
 
 
-Dissapointed Stefan Seagull
-Happy Stegan Seagull
+Dissapointed Steven Segal
+Happy Steven Segal
 
 
 Acapella sounds:
@@ -32,4 +32,5 @@ Acapella sounds:
 - Walking
 - Throwing cards
 - Card impact
-- Scream?
+- Scream(s?) - How many? "I thought we had a deal", "I'll never cheat again!", "We're buissness parters"
+- 
