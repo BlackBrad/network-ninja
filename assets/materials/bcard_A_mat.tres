@@ -1,7 +1,8 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://fvc820fvksx2"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bfp8y5o76u8ma"]
 
 [ext_resource type="Texture2D" uid="uid://dfcot8r2fpsi4" path="res://assets/textures/bcard_A_diff.png" id="1_wwa3r"]
 
 [resource]
 albedo_texture = ExtResource("1_wwa3r")
 metallic_specular = 0.0
+texture_filter = 0
