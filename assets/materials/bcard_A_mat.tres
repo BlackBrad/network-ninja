@@ -1,7 +1,7 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bfp8y5o76u8ma"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://fvc820fvksx2"]
 
-[ext_resource type="Texture2D" uid="uid://csn1p8q7qnm1l" path="res://assets/textures/bcard_cursed_diff.png" id="1_bxtd3"]
+[ext_resource type="Texture2D" uid="uid://dfcot8r2fpsi4" path="res://assets/textures/bcard_A_diff.png" id="1_wwa3r"]
 
 [resource]
-albedo_texture = ExtResource("1_bxtd3")
+albedo_texture = ExtResource("1_wwa3r")
 metallic_specular = 0.0

@@ -7,18 +7,17 @@ const JUMP_VELOCITY = 4.5
 const MOUSE_SENSITIVITY = 0.01
 var business_card_prefab = preload("res://scenes/business_card.tscn")
 
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var _start_drag = Vector2()
 var _end_drag = Vector2()
 var _relative_mouse_motion = Vector2()
 
-var hand = [CardTypes.YELLOW, CardTypes.EMPTY,CardTypes.EMPTY,CardTypes.EMPTY,CardTypes.EMPTY]
+var hand = [CardTypes.A, CardTypes.EMPTY,CardTypes.EMPTY,CardTypes.EMPTY,CardTypes.EMPTY]
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	update_hand([CardTypes.YELLOW, CardTypes.YELLOW, CardTypes.GREEN, CardTypes.BLUE, 0])
+	update_hand([CardTypes.A, CardTypes.B, CardTypes.C, CardTypes.D, CardTypes.SPECIAL])
 		
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -35,7 +34,7 @@ func handle_business_card():
 	var new_hand = hand
 	var card_type = new_hand.pop_front()
 	if not card_type:
-		card_type = CardTypes.YELLOW # If player hand empty spawn default card type
+		card_type = CardTypes.A # If player hand empty spawn default card type
 	new_hand.append(CardTypes.EMPTY)
 	update_hand(new_hand)
 	
@@ -108,10 +107,10 @@ func update_hand(new_hand):
 		active_card.set_business_card_type(new_hand[0])
 	
 	# Update hand
-	for i in range(1,4):
+	for i in range(1,5):
 		var card_type = new_hand[i]
 		if card_type != 0:
-			var child = $Pivot/LeftArm.get_child(i)
+			var child = $Pivot/LeftArm.get_child(i-1)
 			if child:
 				child.visible = true
 				child.set_business_card_type(card_type)
