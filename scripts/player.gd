@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+const CardTypes = preload("res://scripts/card_types.gd")
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -13,11 +14,11 @@ var _start_drag = Vector2()
 var _end_drag = Vector2()
 var _relative_mouse_motion = Vector2()
 
-var hand = [0,0,0,0]
+var hand = [CardTypes.EMPTY,CardTypes.EMPTY,CardTypes.EMPTY,CardTypes.EMPTY]
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	update_hand([3, 1, 2, 0])
+	update_hand([CardTypes.YELLOW, CardTypes.GREEN, CardTypes.BLUE, 0])
 		
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -34,8 +35,8 @@ func handle_business_card():
 	var new_hand = hand
 	var card_type = new_hand.pop_front()
 	if not card_type:
-		card_type = 1 # If player hand empty spawn default card type
-	new_hand.append(0)
+		card_type = CardTypes.YELLOW # If player hand empty spawn default card type
+	new_hand.append(CardTypes.EMPTY)
 	update_hand(new_hand)
 	
 	print("spawning business card")
@@ -107,7 +108,7 @@ func update_hand(new_hand):
 
 func pickup_card(card_type):
 	# Find first 0 slot in hand
-	var index = hand.find(0)
+	var index = hand.find(CardTypes.EMPTY)
 	if index >= 0:
 		var new_hand = hand
 		new_hand[index] = card_type

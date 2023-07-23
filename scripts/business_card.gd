@@ -1,6 +1,7 @@
 extends Area3D
 
 var pickup_prefab = preload("res://scenes/business_card_pickup.tscn")
+const CardTypes = preload("res://scripts/card_types.gd")
 
 const GRAVITY = 3.0
 const FRICTION = 0.1
@@ -9,7 +10,7 @@ const ROTATION_SPEED = 5.0
 var velocity = Vector3()
 var acceleration = Vector3()
 var _flight_time = 0.0
-var card_type = 1
+var card_type = CardTypes.YELLOW
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

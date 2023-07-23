@@ -1,9 +1,11 @@
 extends Area3D
 
+const CardTypes = preload("res://scripts/card_types.gd")
+
 var t = 0.0
 @export var amplitude = 0.4
 @export var frequency = 1.5
-@export var card_type = 1
+@export var card_type = CardTypes.YELLOW
 
 func _ready():
 	$Mesh.set_business_card_type(card_type)
