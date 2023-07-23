@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://cy3ros6x4injp"]
 
 [ext_resource type="Script" path="res://scripts/atendee.gd" id="1_jiv06"]
-[ext_resource type="PackedScene" uid="uid://dpwj0yu43ykkr" path="res://assets/npc_networker.tscn" id="2_4uorl"]
+[ext_resource type="PackedScene" uid="uid://dknhr1bwmvhq0" path="res://assets/npc_networker.tscn" id="2_4uorl"]
 [ext_resource type="PackedScene" uid="uid://chnweoc7cjafl" path="res://assets/WIP_victim/WIP_victim.gltf" id="2_abf0s"]
-[ext_resource type="PackedScene" uid="uid://bnygcp6mk85jl" path="res://scenes/attendee_variant_controller.tscn" id="2_yfmdu"]
-[ext_resource type="AudioStream" uid="uid://c11kkn1bpaxiy" path="res://audio/voices/bitcrushed-rerecord/data_never_lies.mp3" id="5_4ehpe"]
+[ext_resource type="PackedScene" path="res://scenes/attendee_variant_controller.tscn" id="2_yfmdu"]
+[ext_resource type="AudioStream" uid="uid://ca14rls8ycr23" path="res://audio/voices/bitcrushed-rerecord/data_never_lies.mp3" id="5_4ehpe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fygdp"]
 
@@ -58,5 +58,7 @@ autostart = true
 
 [node name="Voice" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_4ehpe")
+
+[node name="Scream" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
