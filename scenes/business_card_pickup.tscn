@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dobw6bd0pn5uq"]
+[gd_scene load_steps=10 format=3 uid="uid://dobw6bd0pn5uq"]
 
 [ext_resource type="Script" path="res://scripts/business_card_pickup.gd" id="1_exwbm"]
 [ext_resource type="PackedScene" uid="uid://bl5jlte0tuf3e" path="res://scenes/business_card_view_model.tscn" id="2_ccd1g"]
+[ext_resource type="AudioStream" uid="uid://ddohn4hcmin61" path="res://audio/sound_effects/sucking_up_cards.mp3" id="3_k4fbs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rt4fh"]
 
@@ -72,5 +73,8 @@ shape = SubResource("SphereShape3D_py2di")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 visible = false
 mesh = SubResource("BoxMesh_4pb5j")
+
+[node name="SuckingUpCard" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k4fbs")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -22,6 +22,15 @@ func _ready():
 	mesh.variant = variant
 	mesh.update_mesh()
 
+var screaming_voice_files = [
+	"god_why.mp3",
+	"but_were_business_partners.mp3",
+	"ill_never_cheat_again.mp3",
+	"i_thought_we_had_a_deal.mp3",
+	"please_help.mp3",
+	"sad_scream.mp3"
+]
+
 var file_names = [
 	"lets_do_a_business.mp3",
 	"lets_put_a_pin_in_it.mp3",
@@ -34,7 +43,7 @@ var file_names = [
 	"win_win_situation.mp3",
 	"if_it_is_as_it_is.mp3",
 	"they_are_only_words.mp3",
-	"take_this_offline.mp3",
+	"lets_take_this_offline.mp3",
 	"better_come_back_round.mp3",
 	"ill_run_the_numbers.mp3",
 	"lets_take_this_offline.mp3",
@@ -44,6 +53,7 @@ var file_names = [
 ]
 
 var file_path = "audio/voices/bitcrushed-rerecord/%s"
+var scream_file_path = "audio/sound_effects/bitcrushed/%s"
 
 func load_mp3(path):
 	var file = FileAccess.open(path, FileAccess.READ)
@@ -56,13 +66,26 @@ func play_random_voice():
 	var random_number_gen = RandomNumberGenerator.new()
 	var index_to_voices = random_number_gen.randi_range(0, file_names.size() - 1)
 	var sound = load_mp3(file_path % file_names[index_to_voices])
-	print(file_path % file_names[index_to_voices])
 	if sound:
 		$Voice.set_stream(sound)
 		$Voice.set_volume_db(8)
 		$Voice.play()
 	else:
-		print("BRADLEY BAD FILE %s" % file_path % file_names[index_to_voices])
+		#print("BRADLEY BAD FILE %s" % file_path % file_names[index_to_voices])
+		pass
+	
+func play_random_scream():
+	print("RANDOM SCREAM")
+	var random_number_gen = RandomNumberGenerator.new()
+	var index_to_voices = random_number_gen.randi_range(0, screaming_voice_files.size() - 1)
+	var sound = load_mp3(scream_file_path % screaming_voice_files[index_to_voices])
+	print(scream_file_path % screaming_voice_files[index_to_voices])
+	if sound:
+		$Scream.set_stream(sound)
+		$Scream.set_volume_db(8)
+		$Scream.play()
+	else:
+		print("BRADLEY BAD FILE %s" % scream_file_path % screaming_voice_files[index_to_voices])
 	
 	
 func set_is_networked(networked):
@@ -131,6 +154,7 @@ func _on_timer_timeout():
 	
 func _on_seagal():
 	if is_networked:
+		play_random_scream()
 		replace_with_rigid_body()
 		var score_system = get_node("/root/ScoringSystem")
 		score_system.add_networked_attendee()
