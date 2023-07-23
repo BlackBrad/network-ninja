@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/business_card_view_model.gd" id="1_vtet2"]
 [ext_resource type="PackedScene" uid="uid://cmw3j0w05ylup" path="res://assets/models/bcard_geo.glb" id="2_gpmup"]
-[ext_resource type="Material" uid="uid://fvc820fvksx2" path="res://assets/materials/bcard_A_mat.tres" id="3_j8lui"]
-[ext_resource type="Material" uid="uid://c4aaf1380veq6" path="res://assets/materials/bcard_B_mat.tres" id="3_rufwr"]
-[ext_resource type="Material" uid="uid://c8x6j7eglk56x" path="res://assets/materials/bcard_C_mat.tres" id="4_8t4xr"]
-[ext_resource type="Material" uid="uid://beodcjqght77d" path="res://assets/materials/bcard_D_mat.tres" id="4_eadie"]
-[ext_resource type="Material" uid="uid://dj24e21m0p6ty" path="res://assets/materials/bcard_E_mat.tres" id="5_qgnoe"]
+[ext_resource type="Material" uid="uid://bfp8y5o76u8ma" path="res://assets/materials/bcard_A_mat.tres" id="3_j8lui"]
+[ext_resource type="Material" uid="uid://dok5kwapim5ob" path="res://assets/materials/bcard_B_mat.tres" id="3_rufwr"]
+[ext_resource type="Material" uid="uid://cqaxnxtw01fe" path="res://assets/materials/bcard_C_mat.tres" id="4_8t4xr"]
+[ext_resource type="Material" uid="uid://boiij2qcvjklt" path="res://assets/materials/bcard_D_mat.tres" id="4_eadie"]
+[ext_resource type="Material" uid="uid://cst163kqd43po" path="res://assets/materials/bcard_E_mat.tres" id="5_qgnoe"]
 [ext_resource type="Material" path="res://assets/materials/bcard_cursed_mat.tres" id="8_7k1bp"]
 
 [node name="BusinessCardViewModel" type="Node3D"]

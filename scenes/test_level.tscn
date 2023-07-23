@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcp57wnxwqpe2"]
+[gd_scene load_steps=12 format=3 uid="uid://dcp57wnxwqpe2"]
 
 [ext_resource type="PackedScene" uid="uid://dwtb7l5ft0omk" path="res://scenes/hud.tscn" id="1_tntyl"]
 [ext_resource type="PackedScene" uid="uid://dd7n7yllnkgkt" path="res://scenes/player.tscn" id="1_wn24y"]
 [ext_resource type="PackedScene" uid="uid://cy3ros6x4injp" path="res://scenes/atendee.tscn" id="2_0xd3t"]
 [ext_resource type="Script" path="res://scripts/RestartTimer.gd" id="3_arute"]
 [ext_resource type="AudioStream" uid="uid://cl1de75dcn4st" path="res://audio/music/8bit Bossa-distored.mp3" id="4_h6h16"]
+[ext_resource type="PackedScene" uid="uid://5nh4xmr1vi8y" path="res://scenes/the_room.tscn" id="4_y4mcg"]
 [ext_resource type="Script" path="res://scripts/Audio.gd" id="5_odctq"]
 [ext_resource type="AudioStream" uid="uid://chft6fpi5hr4" path="res://audio/music/Dark-Intro-distorted-speedup-16.mp3" id="5_xmq4a"]
 [ext_resource type="AudioStream" uid="uid://8otauxw5l60a" path="res://audio/sound_effects/relaxing-music-original-viking-attacking-battle-horn-116623.mp3" id="6_wrhj2"]
@@ -30,10 +31,12 @@ autostart = true
 script = ExtResource("8_rudoo")
 
 [node name="pull_point" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.5802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -56.1079)
+
+[node name="TheRoom" parent="." instance=ExtResource("4_y4mcg")]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
-use_collision = true
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 15)
