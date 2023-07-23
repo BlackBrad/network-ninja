@@ -1,45 +1,57 @@
-[gd_scene load_steps=7 format=3 uid="uid://bl5jlte0tuf3e"]
+[gd_scene load_steps=9 format=3 uid="uid://bl5jlte0tuf3e"]
 
 [ext_resource type="Script" path="res://scripts/business_card_view_model.gd" id="1_vtet2"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgnhw"]
-albedo_color = Color(0.693888, 0.644172, 0.119429, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_b6808"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nndb"]
-albedo_color = Color(0.121569, 0.262745, 0.721569, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4s8ah"]
-albedo_color = Color(0, 0.541176, 0.160784, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uqlpd"]
-shading_mode = 0
-albedo_color = Color(0.411765, 0.0196078, 0.0862745, 1)
+[ext_resource type="PackedScene" uid="uid://cmw3j0w05ylup" path="res://assets/models/bcard_geo.glb" id="2_gpmup"]
+[ext_resource type="Material" uid="uid://fvc820fvksx2" path="res://assets/materials/bcard_A_mat.tres" id="3_j8lui"]
+[ext_resource type="Material" uid="uid://c4aaf1380veq6" path="res://assets/materials/bcard_B_mat.tres" id="3_rufwr"]
+[ext_resource type="Material" uid="uid://c8x6j7eglk56x" path="res://assets/materials/bcard_C_mat.tres" id="4_8t4xr"]
+[ext_resource type="Material" uid="uid://beodcjqght77d" path="res://assets/materials/bcard_D_mat.tres" id="4_eadie"]
+[ext_resource type="Material" uid="uid://dj24e21m0p6ty" path="res://assets/materials/bcard_E_mat.tres" id="5_qgnoe"]
+[ext_resource type="Material" path="res://assets/materials/bcard_cursed_mat.tres" id="8_7k1bp"]
 
 [node name="BusinessCardViewModel" type="Node3D"]
 script = ExtResource("1_vtet2")
 
-[node name="YellowCard" type="MeshInstance3D" parent="."]
+[node name="C" parent="." instance=ExtResource("2_gpmup")]
 visible = false
-material_override = SubResource("StandardMaterial3D_xgnhw")
-mesh = SubResource("BoxMesh_b6808")
-skeleton = NodePath("../..")
 
-[node name="BlueCard" type="MeshInstance3D" parent="."]
-visible = false
-material_override = SubResource("StandardMaterial3D_1nndb")
-mesh = SubResource("BoxMesh_b6808")
-skeleton = NodePath("../..")
+[node name="bcard_geo3" parent="C/bcard_geo2" index="0"]
+material_override = ExtResource("4_8t4xr")
 
-[node name="GreenCard" type="MeshInstance3D" parent="."]
+[node name="D" parent="." instance=ExtResource("2_gpmup")]
 visible = false
-material_override = SubResource("StandardMaterial3D_4s8ah")
-mesh = SubResource("BoxMesh_b6808")
-skeleton = NodePath("../..")
 
-[node name="SeagalCard" type="MeshInstance3D" parent="."]
+[node name="bcard_geo3" parent="D/bcard_geo2" index="0"]
+material_override = ExtResource("4_eadie")
+
+[node name="E" parent="." instance=ExtResource("2_gpmup")]
 visible = false
-material_override = SubResource("StandardMaterial3D_uqlpd")
-mesh = SubResource("BoxMesh_b6808")
-skeleton = NodePath("../..")
+
+[node name="bcard_geo3" parent="E/bcard_geo2" index="0"]
+material_override = ExtResource("5_qgnoe")
+
+[node name="B" parent="." instance=ExtResource("2_gpmup")]
+visible = false
+
+[node name="bcard_geo3" parent="B/bcard_geo2" index="0"]
+material_override = ExtResource("3_rufwr")
+
+[node name="A" parent="." instance=ExtResource("2_gpmup")]
+visible = false
+
+[node name="bcard_geo3" parent="A/bcard_geo2" index="0"]
+material_override = ExtResource("3_j8lui")
+
+[node name="Special" parent="." instance=ExtResource("2_gpmup")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+visible = false
+
+[node name="bcard_geo3" parent="Special/bcard_geo2" index="0"]
+material_override = ExtResource("8_7k1bp")
+
+[editable path="C"]
+[editable path="D"]
+[editable path="E"]
+[editable path="B"]
+[editable path="A"]
+[editable path="Special"]

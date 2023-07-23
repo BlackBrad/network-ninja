@@ -10,11 +10,17 @@ const ROTATION_SPEED = 5.0
 var velocity = Vector3()
 var acceleration = Vector3()
 var _flight_time = 0.0
-var card_type = CardTypes.YELLOW
+var card_type = CardTypes.A
+
+@onready var trail = $WackyTrail
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Mesh.set_business_card_type(card_type)
+	if card_type == CardTypes.SPECIAL:
+		trail.visible = true
+	else:
+		trail.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

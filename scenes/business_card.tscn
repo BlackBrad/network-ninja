@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://1ne1yvouw68r"]
+[gd_scene load_steps=8 format=3 uid="uid://1ne1yvouw68r"]
 
 [ext_resource type="Script" path="res://scripts/business_card.gd" id="1_w3bbw"]
 [ext_resource type="PackedScene" uid="uid://bl5jlte0tuf3e" path="res://scenes/business_card_view_model.tscn" id="2_a63k7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_63qgs"]
 radius = 0.35
+
+[sub_resource type="BoxMesh" id="BoxMesh_4mlxm"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wssh0"]
 spread = 20.0
@@ -17,10 +19,8 @@ collision_bounce = 0.7
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2x2l3"]
 transparency = 1
-albedo_color = Color(0.658824, 0.105882, 0.105882, 0.592157)
-emission_enabled = true
-emission = Color(0.388235, 0.360784, 0.0470588, 1)
-emission_energy_multiplier = 1.94
+shading_mode = 0
+albedo_color = Color(0.270588, 0.0313726, 0.164706, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_rgowp"]
 material = SubResource("StandardMaterial3D_2x2l3")
@@ -35,10 +35,17 @@ script = ExtResource("1_w3bbw")
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 shape = SubResource("SphereShape3D_63qgs")
 
-[node name="Mesh" parent="." instance=ExtResource("2_a63k7")]
+[node name="ReferenceMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.107739, 0, -0.000996923, 0, 0.00125324, 0, 0.00178466, 0, 0.0601836, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_4mlxm")
+skeleton = NodePath("../Mesh")
+
+[node name="Mesh" parent="." instance=ExtResource("2_a63k7")]
+transform = Transform3D(0.399945, 0, -0.00662496, 0, 0.4, 0, 0.00662496, 0, 0.399945, 0, 0, 0)
 
 [node name="WackyTrail" type="GPUParticles3D" parent="."]
+visible = false
 amount = 120
 lifetime = 2.0
 explosiveness = 0.08

@@ -16,19 +16,22 @@ func set_business_card_type(card_type):
 	for child in get_children():
 		child.visible = false
 		
-	var index = 0
+	var child = null
 	match card_type:
-		CardTypes.YELLOW:
-			index = 0
-		CardTypes.BLUE:
-			index = 1
-		CardTypes.GREEN:
-			index = 2
-		CardTypes.SEAGAL:
-			index = 3
+		CardTypes.A:
+			child = get_node("A")
+		CardTypes.B:
+			child = get_node("B")
+		CardTypes.C:
+			child = get_node("C")
+		CardTypes.D:
+			child = get_node("D")
+		CardTypes.E:
+			child = get_node("E")
+		CardTypes.SPECIAL:
+			child = get_node("Special")
 		_:
 			print("Unknown card type %d" % card_type)
-			index = 0
 			
-	if index < get_child_count():
-		get_child(index).visible = true
+	if child:
+		child.visible = true
