@@ -50,7 +50,6 @@ func _on_music_sound_scroll_value_changed(value):
 func _on_master_sound_scroll_value_changed(value):
 	audio_settings.x = round(value) # Replace with function body.
 
-
 func _on_return_button_pressed():
 	option_menu_container.visible = false
 	main_menu_container.visible = true

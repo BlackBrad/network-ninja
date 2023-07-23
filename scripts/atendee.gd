@@ -7,15 +7,20 @@ const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-@onready var mesh = $NPC_networker
+@onready var mesh = $VariantController
 
 var _input_dir = Vector2(0, 0)
 var is_networked = false
 var is_observing = false
 var target_to_observe = null
 
+var variant = 0
+
 func _ready():
 	update_is_networked()
+	variant = randi_range(0, 4)
+	mesh.variant = variant
+	mesh.update_mesh()
 	
 func set_is_networked(networked):
 	is_networked = networked
@@ -30,7 +35,6 @@ func _physics_process(delta):
 		if target_to_observe == null:
 			# Find nearest attendee who is networked
 			var taken_attendees = get_tree().get_nodes_in_group("taken_attendees")
-			print(taken_attendees)
 			var closest = null
 			var closest_dist = 1000.0
 			for attendee in taken_attendees:
@@ -41,7 +45,6 @@ func _physics_process(delta):
 			
 			# Set to target to observe
 			target_to_observe = closest
-			print("Setting Observing to %s" % closest)
 			
 		# Zero velocity
 		velocity.x = 0
@@ -52,7 +55,6 @@ func _physics_process(delta):
 		
 		# Look at target to observe in horror
 		if target_to_observe:
-			print("Observing %s" % target_to_observe)
 			mesh.look_at(target_to_observe.global_position, Vector3.UP, true)
 			mesh.rotation.x = 0.0
 			mesh.rotation.z = 0.0
@@ -87,6 +89,8 @@ func _on_timer_timeout():
 func _on_seagal():
 	if is_networked:
 		replace_with_rigid_body()
+		var score_system = get_node("/root/ScoringSystem")
+		score_system.add_networked_attendee()
 	else:
 		is_observing = true
 
@@ -95,6 +99,7 @@ func update_is_networked():
 	
 func replace_with_rigid_body():
 	var attendee_rigid_body = atendee_rigid_body_prefab.instantiate()
+	attendee_rigid_body.variant = variant
 	get_parent().add_child(attendee_rigid_body)
 	attendee_rigid_body.transform = transform
 	attendee_rigid_body.set_state(mesh.transform)

@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+const CardTypes = preload("res://scripts/card_types.gd")
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -13,11 +14,11 @@ var _start_drag = Vector2()
 var _end_drag = Vector2()
 var _relative_mouse_motion = Vector2()
 
-var hand = [0,0,0,0]
+var hand = [CardTypes.YELLOW, CardTypes.EMPTY,CardTypes.EMPTY,CardTypes.EMPTY,CardTypes.EMPTY]
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	update_hand([3, 1, 2, 0])
+	update_hand([CardTypes.YELLOW, CardTypes.YELLOW, CardTypes.GREEN, CardTypes.BLUE, 0])
 		
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -30,11 +31,21 @@ func _input(event):
 
 
 func handle_business_card():
+	# Update hand
+	var new_hand = hand
+	var card_type = new_hand.pop_front()
+	if not card_type:
+		card_type = CardTypes.YELLOW # If player hand empty spawn default card type
+	new_hand.append(CardTypes.EMPTY)
+	update_hand(new_hand)
+	
 	print("spawning business card")
+	
 	# FIXME: Don't hard-code this, need to spawn the nodes under something in all our levels
 	var root = get_node("/root/test_level")
 	# TODO: Do we need to look at pooling these for perf
 	var instance = business_card_prefab.instantiate()
+	instance.card_type = card_type
 	root.add_child(instance)
 	var spawner = $Pivot/Camera3D/CardEmitter
 	instance.global_position = spawner.global_position
@@ -46,12 +57,7 @@ func handle_business_card():
 	var rel = _end_drag - _start_drag
 	print("%f %f" % [rel.x, rel.y])
 	instance.acceleration = right * rel.x * -1000.0
-	
-	# Update hand
-	var new_hand = hand
-	new_hand.pop_front()
-	new_hand.append(0)
-	update_hand(new_hand)
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -70,6 +76,7 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("trigger_seagal"):
 		get_tree().call_group("attendees", "_on_seagal")
+		get_tree().call_group("audio", "_on_seagal")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -85,11 +92,23 @@ func _physics_process(delta):
 	move_and_slide()
 
 func update_hand(new_hand):
-	assert(new_hand.size() == 4)
+	assert(new_hand.size() == 5)
+	
+	# Hide hand
 	for child in $Pivot/LeftArm.get_children():
 		child.visible = false
+		
+	# Hide active
+	var active_card = $Pivot/RightArm.get_child(0)
+	active_card.visible = false
 	
-	for i in range(0,3):
+	# Update active
+	if new_hand[0] != CardTypes.EMPTY:
+		active_card.visible = true
+		active_card.set_business_card_type(new_hand[0])
+	
+	# Update hand
+	for i in range(1,4):
 		var card_type = new_hand[i]
 		if card_type != 0:
 			var child = $Pivot/LeftArm.get_child(i)
@@ -99,3 +118,10 @@ func update_hand(new_hand):
 
 	hand = new_hand
 
+func pickup_card(card_type):
+	# Find first 0 slot in hand
+	var index = hand.find(CardTypes.EMPTY)
+	if index >= 0:
+		var new_hand = hand
+		new_hand[index] = card_type
+		update_hand(new_hand)

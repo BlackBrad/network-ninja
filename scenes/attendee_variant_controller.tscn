@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnygcp6mk85jl"]
+
+[ext_resource type="Script" path="res://scripts/VariantController.gd" id="1_lh2c1"]
+[ext_resource type="PackedScene" uid="uid://cqctfuusgprwe" path="res://assets/networkers/networker_A.tscn" id="2_tm0ox"]
+[ext_resource type="PackedScene" uid="uid://dqs2igg0pcge6" path="res://assets/networkers/networker_B.tscn" id="3_6dyqg"]
+[ext_resource type="PackedScene" uid="uid://ds0v0tn2rysyw" path="res://assets/networkers/networker_C.tscn" id="4_4u378"]
+[ext_resource type="PackedScene" uid="uid://chck4swx7e8aj" path="res://assets/networkers/networker_D.tscn" id="5_fqgpn"]
+[ext_resource type="PackedScene" uid="uid://d28r5qu3p0npm" path="res://assets/networkers/networker_E.tscn" id="6_ul3ks"]
+
+[node name="VariantController" type="Node3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1, 0)
+script = ExtResource("1_lh2c1")
+
+[node name="NPC_networker" parent="." instance=ExtResource("2_tm0ox")]
+
+[node name="NPC_networker2" parent="." instance=ExtResource("3_6dyqg")]
+
+[node name="NPC_networker3" parent="." instance=ExtResource("4_4u378")]
+
+[node name="NPC_networker4" parent="." instance=ExtResource("5_fqgpn")]
+
+[node name="NPC_networker5" parent="." instance=ExtResource("6_ul3ks")]

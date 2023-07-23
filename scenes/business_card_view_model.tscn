@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://diwkxjj7yh8gi"]
+[gd_scene load_steps=7 format=3 uid="uid://bl5jlte0tuf3e"]
 
 [ext_resource type="Script" path="res://scripts/business_card_view_model.gd" id="1_vtet2"]
 
@@ -12,6 +12,10 @@ albedo_color = Color(0.121569, 0.262745, 0.721569, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4s8ah"]
 albedo_color = Color(0, 0.541176, 0.160784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uqlpd"]
+shading_mode = 0
+albedo_color = Color(0.411765, 0.0196078, 0.0862745, 1)
 
 [node name="BusinessCardViewModel" type="Node3D"]
 script = ExtResource("1_vtet2")
@@ -31,5 +35,11 @@ skeleton = NodePath("../..")
 [node name="GreenCard" type="MeshInstance3D" parent="."]
 visible = false
 material_override = SubResource("StandardMaterial3D_4s8ah")
+mesh = SubResource("BoxMesh_b6808")
+skeleton = NodePath("../..")
+
+[node name="SeagalCard" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_uqlpd")
 mesh = SubResource("BoxMesh_b6808")
 skeleton = NodePath("../..")

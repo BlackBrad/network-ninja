@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy3ros6x4injp"]
+[gd_scene load_steps=10 format=3 uid="uid://cy3ros6x4injp"]
 
 [ext_resource type="Script" path="res://scripts/atendee.gd" id="1_jiv06"]
-[ext_resource type="PackedScene" uid="uid://dknhr1bwmvhq0" path="res://assets/npc_networker.tscn" id="2_4uorl"]
+[ext_resource type="PackedScene" uid="uid://dpwj0yu43ykkr" path="res://assets/npc_networker.tscn" id="2_4uorl"]
 [ext_resource type="PackedScene" uid="uid://chnweoc7cjafl" path="res://assets/WIP_victim/WIP_victim.gltf" id="2_abf0s"]
+[ext_resource type="PackedScene" uid="uid://bnygcp6mk85jl" path="res://scenes/attendee_variant_controller.tscn" id="2_yfmdu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fygdp"]
 
@@ -25,8 +26,11 @@ script = ExtResource("1_jiv06")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_fygdp")
 
+[node name="VariantController" parent="." instance=ExtResource("2_yfmdu")]
+
 [node name="NPC_networker" parent="." instance=ExtResource("2_4uorl")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1, 0)
+visible = false
 
 [node name="Mesh" parent="." instance=ExtResource("2_abf0s")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1, 0)
