@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://xj1xlh8tbh2a"]
+
+[ext_resource type="PackedScene" uid="uid://c6xpohvp7uit5" path="res://assets/models/room_floor.glb" id="1_017e5"]
+[ext_resource type="Material" uid="uid://cb0phdjipsgp0" path="res://assets/materials/carpet_mat.tres" id="2_hjpoc"]
+
+[node name="room_floor" instance=ExtResource("1_017e5")]
+
+[node name="room_floor_geo" parent="room_floor2" index="0"]
+material_override = ExtResource("2_hjpoc")

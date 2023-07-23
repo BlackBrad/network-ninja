@@ -48,15 +48,15 @@ func _on_body_entered(body):
 		if card_type == CardTypes.SPECIAL:
 			if not body.is_networked:
 				body.set_is_networked(true)
-	else:
-		pickup_prefab.instantiate()
-		# FIXME: Don't hard-code this, need to spawn the nodes under something in all our levels
-		var root = get_node("/root/test_level")
-		# TODO: Do we need to look at pooling these for perf
-		var instance = pickup_prefab.instantiate()
-		instance.card_type = card_type
-		root.add_child(instance)
-		instance.global_position = global_position
+#	else:
+#		pickup_prefab.instantiate()
+#		# FIXME: Don't hard-code this, need to spawn the nodes under something in all our levels
+#		var root = get_node("/root/test_level")
+#		# TODO: Do we need to look at pooling these for perf
+#		var instance = pickup_prefab.instantiate()
+#		instance.card_type = card_type
+#		root.add_child(instance)
+#		instance.global_position = global_position
 
 	
 	queue_free()

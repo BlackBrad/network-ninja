@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy65c8hnuki"]
+
+[ext_resource type="PackedScene" uid="uid://ctqrxkruv26m5" path="res://assets/models/room_wall_plain_geo.glb" id="1_2g0ni"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jkuv3"]
+size = Vector3(10, 16, 3)
+
+[node name="room_wall_plain_geo" instance=ExtResource("1_2g0ni")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="room_wall_plain_geo2" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="room_wall_plain_geo2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 8, -1.5)
+shape = SubResource("BoxShape3D_jkuv3")

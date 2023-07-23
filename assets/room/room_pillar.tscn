@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmo3sfbnu7x0d"]
+
+[ext_resource type="PackedScene" uid="uid://b8xiblusb3hrc" path="res://assets/models/room_pillar_geo.glb" id="1_24agx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nklqc"]
+size = Vector3(4, 16, 4)
+
+[node name="room_pillar_geo" instance=ExtResource("1_24agx")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="room_pillar_geo2" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="room_pillar_geo2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 8, -2)
+shape = SubResource("BoxShape3D_nklqc")
