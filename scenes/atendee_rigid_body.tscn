@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/atendee_rigid_body.gd" id="1_ovjr0"]
 [ext_resource type="PackedScene" uid="uid://chnweoc7cjafl" path="res://assets/WIP_victim/WIP_victim.gltf" id="2_iayht"]
-[ext_resource type="PackedScene" uid="uid://dpwj0yu43ykkr" path="res://assets/npc_networker.tscn" id="3_eahbj"]
-[ext_resource type="PackedScene" uid="uid://bnygcp6mk85jl" path="res://scenes/attendee_variant_controller.tscn" id="3_h1sva"]
+[ext_resource type="PackedScene" uid="uid://dknhr1bwmvhq0" path="res://assets/npc_networker.tscn" id="3_eahbj"]
+[ext_resource type="PackedScene" path="res://scenes/attendee_variant_controller.tscn" id="3_h1sva"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fygdp"]
 
@@ -26,3 +26,5 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1,
 visible = false
 
 [node name="PullPoint" type="Node3D" parent="."]
+
+[node name="Scream" type="AudioStreamPlayer" parent="."]
