@@ -74,6 +74,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("fire"):
 		_start_drag = _relative_mouse_motion
 	if Input.is_action_just_released("fire"):
+		$ThrowCard.play()
 		_end_drag = _relative_mouse_motion
 		handle_business_card()
 		
