@@ -6,24 +6,27 @@ func _on_seagal():
 	#play_random_voice()
 
 var file_names = [
-	"data_never_lies.mp3",
-	"lets_do_a_buisness.mp3",
-	"pin_in_it.mp3",
+	"lets_do_a_business.mp3",
+	"lets_put_a_pin_in_it.mp3",
 	"teamwork_makes_the_dreamwork.mp3",
-	"dont_impress_me_much.mp3",
+	"that_dont_impress_me_much.mp3",
 	"lovely_weather.mp3",
 	"price_of_onions.mp3",
 	"the_more_the_merrier.mp3",
-	"door_is_always_open.mp3",
-	"monkey_in_silk.mp3",
-	"raise_the_bar.mp3",
+	"were_going_to_raise_the_bar.mp3",
 	"win_win_situation.mp3",
-	"if_it_is_like_as_it_is.mp3",
-	"only_words.mp3",
+	"if_it_is_as_it_is.mp3",
+	"they_are_only_words.mp3",
 	"take_this_offline.mp3",
+	"better_come_back_round.mp3",
+	"ill_run_the_numbers.mp3",
+	"lets_take_this_offline.mp3",
+	"monkey_dressed_in_silk.mp3",
+	"my_door_is_always_open.mp3",
+	"the_data_never_lies.mp3"
 ]
 
-var file_path = "audio/voices/bitcrushed/%s"
+var file_path = "audio/voices/bitcrushed-rerecorded/%s"
 
 func load_mp3(path):
 	var file = FileAccess.open(path, FileAccess.READ)
