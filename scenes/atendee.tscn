@@ -1,23 +1,23 @@
 [gd_scene load_steps=11 format=3 uid="uid://cy3ros6x4injp"]
 
 [ext_resource type="Script" path="res://scripts/atendee.gd" id="1_jiv06"]
-[ext_resource type="PackedScene" uid="uid://dknhr1bwmvhq0" path="res://assets/npc_networker.tscn" id="2_4uorl"]
+[ext_resource type="PackedScene" uid="uid://dpwj0yu43ykkr" path="res://assets/npc_networker.tscn" id="2_4uorl"]
 [ext_resource type="PackedScene" uid="uid://chnweoc7cjafl" path="res://assets/WIP_victim/WIP_victim.gltf" id="2_abf0s"]
-[ext_resource type="PackedScene" path="res://scenes/attendee_variant_controller.tscn" id="2_yfmdu"]
-[ext_resource type="AudioStream" uid="uid://ca14rls8ycr23" path="res://audio/voices/bitcrushed-rerecord/data_never_lies.mp3" id="5_4ehpe"]
+[ext_resource type="PackedScene" uid="uid://bnygcp6mk85jl" path="res://scenes/attendee_variant_controller.tscn" id="2_yfmdu"]
+[ext_resource type="AudioStream" uid="uid://c11kkn1bpaxiy" path="res://audio/voices/bitcrushed-rerecord/data_never_lies.mp3" id="5_4ehpe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fygdp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6op4"]
 shading_mode = 0
-albedo_color = Color(1, 1, 0, 1)
+albedo_color = Color(0.258824, 0, 0.180392, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8c01e"]
 radius = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nka1"]
 shading_mode = 0
-albedo_color = Color(1, 1, 0, 1)
+albedo_color = Color(0.258824, 0, 0.180392, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_fa6t7"]
 

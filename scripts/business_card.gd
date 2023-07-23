@@ -43,10 +43,11 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("attendees"):
-		if not body.is_networked:
-			print("hit attendee")
-			get_node("/root/ScoringSystem").add_card_flight_time(_flight_time * max(acceleration.length() * 5, 1))
-			body.set_is_networked(true)
+		get_node("/root/ScoringSystem").add_card_flight_time(_flight_time * max(acceleration.length() * 5, 1))
+		body.play_random_voice()
+		if card_type == CardTypes.SPECIAL:
+			if not body.is_networked:
+				body.set_is_networked(true)
 	else:
 		pickup_prefab.instantiate()
 		# FIXME: Don't hard-code this, need to spawn the nodes under something in all our levels

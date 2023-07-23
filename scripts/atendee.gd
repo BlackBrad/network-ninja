@@ -68,7 +68,6 @@ func play_random_voice():
 func set_is_networked(networked):
 	is_networked = networked
 	update_is_networked()
-	play_random_voice()
 
 func _physics_process(delta):
 	# Add the gravity.
