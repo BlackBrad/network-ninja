@@ -28,8 +28,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7)
 transform = Transform3D(0.271568, 0, -0.0225042, 0, 0.0290728, 0, 0.101978, 0, 0.0599287, 0.134267, -0.143844, -0.370345)
 mesh = SubResource("BoxMesh_b6808")
 
+[node name="BusinessCardViewModel" parent="Pivot/RightArm" instance=ExtResource("2_cvu7a")]
+transform = Transform3D(0.346528, 0, -7.45058e-09, 0, 0.314228, 0, 4.76837e-07, 0, 1, -0.624011, 0, 0.27887)
+
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Pivot/RightArm"]
 transform = Transform3D(0.346528, 0, -7.45058e-09, 0, 0.314228, 0, 4.76837e-07, 0, 1, -0.624011, 0, 0.27887)
+visible = false
 mesh = SubResource("BoxMesh_b6808")
 skeleton = NodePath("../..")
 

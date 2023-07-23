@@ -14,11 +14,11 @@ var _start_drag = Vector2()
 var _end_drag = Vector2()
 var _relative_mouse_motion = Vector2()
 
-var hand = [CardTypes.EMPTY,CardTypes.EMPTY,CardTypes.EMPTY,CardTypes.EMPTY]
+var hand = [CardTypes.YELLOW, CardTypes.EMPTY,CardTypes.EMPTY,CardTypes.EMPTY,CardTypes.EMPTY]
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	update_hand([CardTypes.YELLOW, CardTypes.GREEN, CardTypes.BLUE, 0])
+	update_hand([CardTypes.YELLOW, CardTypes.YELLOW, CardTypes.GREEN, CardTypes.BLUE, 0])
 		
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -92,11 +92,23 @@ func _physics_process(delta):
 	move_and_slide()
 
 func update_hand(new_hand):
-	assert(new_hand.size() == 4)
+	assert(new_hand.size() == 5)
+	
+	# Hide hand
 	for child in $Pivot/LeftArm.get_children():
 		child.visible = false
+		
+	# Hide active
+	var active_card = $Pivot/RightArm.get_child(0)
+	active_card.visible = false
 	
-	for i in range(0,3):
+	# Update active
+	if new_hand[0] != CardTypes.EMPTY:
+		active_card.visible = true
+		active_card.set_business_card_type(new_hand[0])
+	
+	# Update hand
+	for i in range(1,4):
 		var card_type = new_hand[i]
 		if card_type != 0:
 			var child = $Pivot/LeftArm.get_child(i)
