@@ -32,7 +32,7 @@ var replay_timer = Timer.new()
 func _ready():
 	replay_timer.set_one_shot(true)
 	replay_timer.set_wait_time(3)
-	replay_timer.connect("timeout", $Background.play())
+	replay_timer.connect("timeout", $Background.play)
 	add_child(replay_timer)
 	
 func load_mp3(path):
